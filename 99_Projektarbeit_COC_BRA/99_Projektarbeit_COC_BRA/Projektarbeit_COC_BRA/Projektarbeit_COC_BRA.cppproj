@@ -32,15 +32,15 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data xmlns="">
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.45.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.45.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
     <avrtoolserialnumber>J41800092666</avrtoolserialnumber>
@@ -98,6 +98,12 @@
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
+      <Value>..\include\libraries\LiquidCrystal\src</Value>
+      <Value>..\include\libraries\hd44780</Value>
+      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -137,6 +143,12 @@
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
+      <Value>..\include\libraries\LiquidCrystal\src</Value>
+      <Value>..\include\libraries\hd44780</Value>
+      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -200,6 +212,12 @@
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
+      <Value>..\include\libraries\LiquidCrystal\src</Value>
+      <Value>..\include\libraries\hd44780</Value>
+      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -239,6 +257,12 @@
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
       <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+      <Value>..\include\libraries\Wire\src</Value>
+      <Value>..\include\libraries\Wire\src\utility</Value>
+      <Value>..\include\libraries\LiquidCrystal\src</Value>
+      <Value>..\include\libraries\hd44780</Value>
+      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -264,7 +288,52 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="include\libraries\hd44780\hd44780.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\hd44780\hd44780ioClass\hd44780_I2Cexp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\hd44780\hd44780ioClass\hd44780_I2Clcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\hd44780\hd44780ioClass\hd44780_NTCU165ECPB.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\hd44780\hd44780ioClass\hd44780_NTCUUserial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\hd44780\hd44780ioClass\hd44780_pinIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Wire\src\utility\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Wire\src\Wire.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Romeo_keys.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Romeo_keys.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Sketch.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SketchCOC_Old.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\hd44780\hd44780.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\LiquidCrystal\src\LiquidCrystal.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Wire\src\utility\twi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\libraries\Wire\src\Wire.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Content Include="readme.html">
@@ -276,6 +345,31 @@
       <Project>4810028c-3fd9-4949-9d79-276fd41532aa</Project>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="include\" />
+    <Folder Include="include\libraries\" />
+    <Folder Include="include\libraries\hd44780\" />
+    <Folder Include="include\libraries\hd44780\examples\" />
+    <Folder Include="include\libraries\hd44780\examples\Documentation\" />
+    <Folder Include="include\libraries\hd44780\examples\Documentation\docs\" />
+    <Folder Include="include\libraries\hd44780\hd44780ioClass\" />
+    <Folder Include="include\libraries\Wire\" />
+    <Folder Include="include\libraries\Wire\src\" />
+    <Folder Include="include\libraries\Wire\src\utility\" />
+    <Folder Include="src\" />
+    <Folder Include="src\libraries\" />
+    <Folder Include="src\libraries\hd44780\" />
+    <Folder Include="src\libraries\LiquidCrystal\" />
+    <Folder Include="src\libraries\LiquidCrystal\src\" />
+    <Folder Include="src\libraries\Wire\" />
+    <Folder Include="src\libraries\Wire\src\" />
+    <Folder Include="src\libraries\Wire\src\utility\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\libraries\hd44780\examples\Documentation\docs\README.html">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

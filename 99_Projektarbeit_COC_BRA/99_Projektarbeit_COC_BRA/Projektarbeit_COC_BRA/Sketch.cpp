@@ -1,11 +1,28 @@
-﻿/**@file*/
-#include <wire.h>
+﻿#include <wire.h>
 #include <hd44780.h>
 #include <hd44780ioClass/hd44780_I2Cexp.h> // include i/o class header
 
 #include "Romeo_keys.h"
 
 hd44780_I2Cexp lcd;
+
+//Strukt um Städte und deren Zweitverschiebung zu GMT (London)
+struct CITY_TIME_DIF {
+	String name;
+	int timediff;
+};
+
+const struct CITY_TIME_DIF CITIES [] {
+	{"London", 0},{"New-York", -5},{"Paris", 1},{ "Tokyo", 9},
+	{"Hongkong", 8},{"Los Angeles", -8},{"Chicago", -6},{"Seoul", 9},
+	{ "Brüssel",  1},{"Washington",  -5},{"Singapur", 8},{"Sydney", 11}
+	};
+
+static int tz = 0;
+
+//Pin deklaration für den Button und den Temperatur Sensor
+const int btnPin = 1;
+const int tempSensor=A4;
 
 class Zeit {
 public:	
@@ -22,11 +39,14 @@ public:
 	int GetSeconds();
  };
 
+//Ausgangsuhrzeit
+class Zeit zeitGMT(21,31,0);
+//Zeit für die verschiedenen Zeitzonen
+class Zeit zeitTimeZone(12,0,0);
+//Lokalzeit
+class Zeit zeitLocal(22,31,0);
 
-class Zeit zeitLocal(17,15,0);
-class Zeit zeit2(12,0,0); 
-int status = 0, status2;
-int buzzer = 0;
+
 /**
  * @brief increments the time  by one second 
  *
@@ -64,6 +84,8 @@ void Watch()
 	static long target = INTERVAL;
 	if (millis() > target)	{
 		target += INTERVAL;
+		zeitGMT.Tick();
+		zeitTimeZone.Tick();
 		zeitLocal.Tick();
 		//if(zeit1.Tick()) datum1.Tick(); //Wenn die Zeit bei 24.00 ankommt wird ret = 1 gesetzt und das Datum eins weitergestellt
 	}
@@ -99,19 +121,33 @@ void printhhmmss(class Zeit &z)
 
 /**
  * @brief print the humidity and temp on the lcd
+ * 
+ * Liest den Temperatursensor aus rechnet den Wert in Grad Celsius um
+ * und schreibt den Wert auf das LCD
+ *
  * @return void
  */
 void printHumidityTemp (void)
 {
+	float temp;
+	temp=analogRead(tempSensor);
+	temp=(temp*500)/1023;
+	
 	lcd.setCursor(0,1);
-	lcd.print("Hum  &  Temp");
+	if (temp > 100) lcd.print("Sensor defekt");
+	else {
+		lcd.print(temp);
+		lcd.print(" ");
+		lcd.print((char)223);
+		lcd.print("C");
+	}
 }
 
 /**
  * @brief shows the locale time, the relative humidity and the temperature
  *
  * print a string "hh:mm:ss ALM" to the LCD
- * print the humidity and the temperature to the lower line
+ * print the humidity and the temperature to the lower line every 5 seconds
  *
  * @param[in] key : int, user input
  *
@@ -119,13 +155,44 @@ void printHumidityTemp (void)
  */
 int homeScreen(int key)
 {
+	if (zeitLocal.ss_ % 5 == 0)
+	{	
+		printHumidityTemp();
+	}
 	lcd.setCursor(0,0);
 	printhhmmss(zeitLocal);
-	printHumidityTemp();
-	
+
 	return key;
 }
 
+/**
+ * @brief Errechnet die Zeit der Zeitzone
+ * 
+ * Stellt sicher, dass die Zeiten richtig sind. 
+ * Zwischen 0 und kleiner als 24.
+ */
+void calculateTime() {
+	zeitTimeZone.hh_= zeitGMT.hh_ + CITIES[tz].timediff;
+	if (zeitTimeZone.hh_ > 23)
+	{
+		zeitTimeZone.hh_ -= 24; 
+	}
+	if (zeitTimeZone.hh_ < 0)
+	{
+		zeitTimeZone.hh_ = 24 - zeitTimeZone.hh_;
+	}
+	
+}
+
+
+/**
+ * @brief Ermöglicht das durchwechseln verschiedener Zeitzonen
+ * 
+ * Input UP,DOWN Key wird verarbeitet und als X_KEY zurückgegeben 
+ * Es wird die Zeit der Zeitzone mit calculateTime ermittelt
+ * 
+ * @return key
+ */
 int changeTimeZone (int key)
 {
 	switch (key)
@@ -134,30 +201,62 @@ int changeTimeZone (int key)
 		//zeit2 = zeitLocal;
 		case DOWN_KEY:
 		lcd.clear();
-		zeit2.hh_-=1;
+		if (tz == 0)
+		{
+			tz = 11;
+		}
+		else tz -= 1;
+		calculateTime();	
 		key = X_KEY;
 		break;
 		case UP_KEY:
 		lcd.clear();
-		zeit2.hh_+=1;
+		if (tz == 11)
+		{
+			tz = 0;
+		}
+		else tz += 1;
+		calculateTime();
 		key = X_KEY;
 		break;
 		case OK_KEY:
-		zeitLocal = zeit2;
 		break;
 		case RIGHT_KEY:
-		zeitLocal = zeit2;
 		break;
 	}
 	return key;
 }
 
-int timeZones(int key)
+/**
+ * @brief shows a city an his time
+ *
+ * change the city if a key is pressed
+ * prints the name of the city an his time
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
+int setTimeZone(int key)
 {
 	int input = changeTimeZone(key);
+	lcd.setCursor(0,0);
+	lcd.print(CITIES[tz].name);
 	lcd.setCursor(0,1);
-	printhhmmss(zeit2);
+	printhhmmss(zeitTimeZone);
 	return input;
+}
+
+/**
+ * @brief set zero position of the three pointer
+ *
+ */
+void callibratePointer() 
+{
+	lcd.clear();
+	lcd.print("Zeiger kalibrieren");
+	delay(2000);
+	lcd.clear();
 }
 
 
@@ -198,7 +297,7 @@ const struct FSM_TAG watchmenu[] =
 {
 	//            ^   <   v   >  ok
 	/*0*/ {str0, -1, -1,  -1,  1, -1,	homeScreen,		NULL,		NULL},
-	/*1*/ {str1, -1,  -1,  -1,  -1,   0,	timeZones,		NULL,		NULL},
+	/*1*/ {str0, -1,  0,  -1,  -1, -1,	setTimeZone,		NULL,		NULL},
 		
 
 };
@@ -215,6 +314,7 @@ static char strtemp[20]; /// temporary variable for access to PROGMEM strings
  */
 void setup()
 {
+	//LCD konfigurieren
 	lcd.begin(16, 2);
 	lcd.noBacklight();
 	lcd.noCursor();
@@ -224,6 +324,13 @@ void setup()
 	lcd.print("Coray / Bruno");
 	while(millis()<3000);
 	lcd.clear();
+	
+	zeitTimeZone = zeitGMT;
+	
+	//Button uns Sensor Pin als input definiert
+	pinMode(btnPin, INPUT);
+	pinMode(tempSensor,INPUT);
+	
 }
 
 /**
@@ -234,6 +341,13 @@ void setup()
  */
 void loop()
 {
+	//Button-Pin auslesen
+	if (digitalRead(btnPin) == HIGH)
+	{
+		callibratePointer();
+	}
+	else
+	{
 	Watch();
 	input = getkey();
 	if (watchmenu[menu].active) 
@@ -285,4 +399,8 @@ void loop()
 		lcd.setCursor(0, 0);
 		lcd.print(ROM(watchmenu[menu].text1));
 	}
+		} //else Klammer
 }
+
+
+

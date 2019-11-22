@@ -18,10 +18,11 @@ const struct CITY_TIME_DIF CITIES [] {
 	{ "Brüssel",  1},{"Washington",  -5},{"Singapur", 8},{"Sydney", 11}
 	};
 
-static int tz = 0;
+int tz = 0;
+long readSensor = 0;
 
 //Pin deklaration für den Button und den Temperatur Sensor
-const int btnPin = 1;
+const int btnPin = 7;
 const int tempSensor=A4;
 
 class Zeit {
@@ -155,9 +156,10 @@ void printHumidityTemp (void)
  */
 int homeScreen(int key)
 {
-	if (zeitLocal.ss_ % 5 == 0)
+	if (readSensor < millis())
 	{	
 		printHumidityTemp();
+		readSensor = millis() + 5000;
 	}
 	lcd.setCursor(0,0);
 	printhhmmss(zeitLocal);
@@ -399,7 +401,7 @@ void loop()
 		lcd.setCursor(0, 0);
 		lcd.print(ROM(watchmenu[menu].text1));
 	}
-		} //else Klammer
+	} //else Klammer
 }
 
 

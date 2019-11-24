@@ -7,8 +7,6 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Projektarbeit_COC_BRA", "99
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "99_Projektarbeit_COC_BRA\ArduinoCore\ArduinoCore.cppproj", "{4810028C-3FD9-4949-9D79-276FD41532AA}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "einfaches_hmi", "..\..\02_Einfaches_HMI\01_Hello_World\hello_world\einfaches_hmi.cppproj", "{1C3DD284-ED22-45DB-B2D3-22069706CFCD}"
-EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Clock_Romeo_flash", "..\..\03_Clock_Romeo_flash\HelloWorld_AS7\Romeo_Hello_World\Clock_Romeo_flash.cppproj", "{334C5B83-45DB-4503-8FE9-85DA4F7685F7}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{4810028C-3FD9-4949-9D79-276FD41532AA}.Debug|AVR.Build.0 = Debug|AVR
 		{4810028C-3FD9-4949-9D79-276FD41532AA}.Release|AVR.ActiveCfg = Release|AVR
 		{4810028C-3FD9-4949-9D79-276FD41532AA}.Release|AVR.Build.0 = Release|AVR
-		{1C3DD284-ED22-45DB-B2D3-22069706CFCD}.Debug|AVR.ActiveCfg = Debug|AVR
-		{1C3DD284-ED22-45DB-B2D3-22069706CFCD}.Debug|AVR.Build.0 = Debug|AVR
-		{1C3DD284-ED22-45DB-B2D3-22069706CFCD}.Release|AVR.ActiveCfg = Release|AVR
-		{1C3DD284-ED22-45DB-B2D3-22069706CFCD}.Release|AVR.Build.0 = Release|AVR
 		{334C5B83-45DB-4503-8FE9-85DA4F7685F7}.Debug|AVR.ActiveCfg = Debug|AVR
 		{334C5B83-45DB-4503-8FE9-85DA4F7685F7}.Debug|AVR.Build.0 = Debug|AVR
 		{334C5B83-45DB-4503-8FE9-85DA4F7685F7}.Release|AVR.ActiveCfg = Release|AVR

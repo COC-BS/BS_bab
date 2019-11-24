@@ -10,16 +10,18 @@ hd44780_I2Cexp lcd;
 struct CITY_TIME_DIF {
 	String name;
 	int timediff;
+	String initials;
 };
 
 const struct CITY_TIME_DIF CITIES [] {
-	{"London", 0},{"New-York", -5},{"Paris", 1},{ "Tokyo", 9},
-	{"Hongkong", 8},{"Los Angeles", -8},{"Chicago", -6},{"Seoul", 9},
-	{ "Brüssel",  1},{"Washington",  -5},{"Singapur", 8},{"Sydney", 11}
+	{"London", 0, "LOND"},{"New-York", -5, "NEYO"},{"Paris", 1, "PARI"},{ "Tokyo", 9, "TOKY"},
+	{"Hongkong", 8, "HONG"},{"Los Angeles", -8, "LOSA"},{"Chicago", -6, "CHIC"},{"Seoul", 9, "SEOU"},
+	{ "Bruessel",  1, "BRUE"},{"Washington",  -5, "WASH"},{"Singapur", 8, "SING"},{"Sydney", 11, "SYDN"}
 	};
 
 int tz = 0;
 long readSensor = 0;
+boolean timeZoneChoosen = false; //Bool to set the local time or a time of a city
 
 //Pin deklaration für den Button und den Temperatur Sensor
 const int btnPin = 7;
@@ -162,8 +164,16 @@ int homeScreen(int key)
 		readSensor = millis() + 5000;
 	}
 	lcd.setCursor(0,0);
-	printhhmmss(zeitLocal);
-
+	if (timeZoneChoosen)
+	{
+		printhhmmss(zeitTimeZone);
+		lcd.setCursor(12,0);
+		lcd.print(CITIES[tz].initials);
+	}
+	else
+	{
+		printhhmmss(zeitLocal);	
+	}
 	return key;
 }
 
@@ -230,6 +240,17 @@ int changeTimeZone (int key)
 }
 
 /**
+ * @brief sets the choosen time Zone to the home screen
+ *
+ * @return 0
+ */
+int chooseTimeZone (void)
+{
+	timeZoneChoosen = true;
+	return 0;
+}
+
+/**
  * @brief shows a city an his time
  *
  * change the city if a key is pressed
@@ -248,6 +269,7 @@ int setTimeZone(int key)
 	printhhmmss(zeitTimeZone);
 	return input;
 }
+
 
 /**
  * @brief set zero position of the three pointer
@@ -299,7 +321,7 @@ const struct FSM_TAG watchmenu[] =
 {
 	//            ^   <   v   >  ok
 	/*0*/ {str0, -1, -1,  -1,  1, -1,	homeScreen,		NULL,		NULL},
-	/*1*/ {str0, -1,  0,  -1,  -1, -1,	setTimeZone,		NULL,		NULL},
+	/*1*/ {str0, -1,  0,  -1,  -1, 0,	setTimeZone,		NULL,	chooseTimeZone},
 		
 
 };

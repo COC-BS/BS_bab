@@ -14,14 +14,17 @@ struct CITY_TIME_DIF {
 };
 
 const struct CITY_TIME_DIF CITIES [] {
-	{"London", 0, "LOND"},{"New-York", -5, "NEYO"},{"Paris", 1, "PARI"},{ "Tokyo", 9, "TOKY"},
-	{"Hongkong", 8, "HONG"},{"Los Angeles", -8, "LOSA"},{"Chicago", -6, "CHIC"},{"Seoul", 9, "SEOU"},
-	{ "Bruessel",  1, "BRUE"},{"Washington",  -5, "WASH"},{"Singapur", 8, "SING"},{"Sydney", 11, "SYDN"}
+	{"London", 0, "LON"},{"New-York", -5, "NEY"},{"Paris", 1, "PAR"},{ "Tokyo", 9, "TOK"},
+	{"Hongkong", 8, "HNK"},{"Los Angeles", -8, "LAN"},{"Chicago", -6, "CHI"},{"Seoul", 9, "SEO"},
+	{ "Bruessel",  1, "BRU"},{"Washington",  -5, "WAS"},{"Singapur", 8, "SIN"},{"Sydney", 11, "SYD"}
 	};
 
 int tz = 0;
 long readSensor = 0;
+float temp;
 boolean timeZoneChoosen = false; //Bool to set the local time or a time of a city
+boolean ampm = false; //Bool to change between 12h clock and 24h
+
 
 //Pin deklaration für den Button und den Temperatur Sensor
 const int btnPin = 7;
@@ -114,12 +117,33 @@ void Watch()
  */
 void printhhmmss(class Zeit &z)
 {
-	if(z.GetHours()<=9)lcd.print("0");
-	lcd.print(z.GetHours());
+	if (ampm)
+	{
+		int ampmhours = z.GetHours(); 
+		if (ampmhours > 12)
+		{
+			 ampmhours -= 12;
+			 if(ampmhours<=9)lcd.print("0");
+			 lcd.print(ampmhours);
+		}	
+		else
+		{
+			if(ampmhours<=9)lcd.print("0");
+			 lcd.print(ampmhours);
+		}	 
+	}
+	
+	else
+	{
+		if(z.GetHours()<=9)lcd.print("0");
+		lcd.print(z.GetHours());
+	}
 	if(z.GetMinutes()<=9)lcd.print(":0"); else lcd.print(":");
 	lcd.print(z.GetMinutes());
 	if(z.GetSeconds()<=9)lcd.print(":0"); else lcd.print(":");
 	lcd.print(z.GetSeconds());
+	if (ampm && z.GetHours() > 12) lcd.print(" PM");
+	else if (ampm && z.GetHours() <= 12) lcd.print(" AM");
 }
 
 /**
@@ -132,10 +156,6 @@ void printhhmmss(class Zeit &z)
  */
 void printHumidityTemp (void)
 {
-	float temp;
-	temp=analogRead(tempSensor);
-	temp=(temp*500)/1023;
-	
 	lcd.setCursor(0,1);
 	if (temp > 100) lcd.print("Sensor defekt");
 	else {
@@ -160,14 +180,17 @@ int homeScreen(int key)
 {
 	if (readSensor < millis())
 	{	
+		temp=analogRead(tempSensor);
+		temp=(temp*500)/1023;
 		printHumidityTemp();
 		readSensor = millis() + 5000;
 	}
+	printHumidityTemp();
 	lcd.setCursor(0,0);
 	if (timeZoneChoosen)
 	{
 		printhhmmss(zeitTimeZone);
-		lcd.setCursor(12,0);
+		lcd.setCursor(13,0);
 		lcd.print(CITIES[tz].initials);
 	}
 	else
@@ -246,7 +269,18 @@ int changeTimeZone (int key)
  */
 int chooseTimeZone (void)
 {
-	timeZoneChoosen = true;
+	timeZoneChoosen = !timeZoneChoosen;
+	return 0;
+}
+
+/**
+ * @brief change between 12h and 24h clock
+ *
+ * @return 0
+ */
+int changeAMPM (void)
+{
+	ampm = !ampm;
 	return 0;
 }
 
@@ -320,7 +354,7 @@ const char str8[] PROGMEM = "SET DATE";
 const struct FSM_TAG watchmenu[] =
 {
 	//            ^   <   v   >  ok
-	/*0*/ {str0, -1, -1,  -1,  1, -1,	homeScreen,		NULL,		NULL},
+	/*0*/ {str0, -1, -1,  -1,  1, 0,	homeScreen,		NULL,		changeAMPM},
 	/*1*/ {str0, -1,  0,  -1,  -1, 0,	setTimeZone,		NULL,	chooseTimeZone},
 		
 

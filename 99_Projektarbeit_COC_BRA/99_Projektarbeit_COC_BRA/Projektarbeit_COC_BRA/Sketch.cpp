@@ -1,5 +1,7 @@
-﻿/*Begining of Auto generated code by Atmel studio */
+/*Begining of Auto generated code by Atmel studio */
 #include <Arduino.h>
+
+//MotorTestBLBLA
 
 /*End of auto generated code by Atmel studio */
 

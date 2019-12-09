@@ -6,6 +6,8 @@ Romeo_keys.cpp
 
 Sketch.cpp
 
+src\libraries\DHTlib\dht.cpp
+
 src\libraries\hd44780\hd44780.cpp
 
 src\libraries\LiquidCrystal\src\LiquidCrystal.cpp

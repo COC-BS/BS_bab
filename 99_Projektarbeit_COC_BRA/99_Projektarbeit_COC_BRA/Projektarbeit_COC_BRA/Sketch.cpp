@@ -2,8 +2,9 @@
 #include <hd44780.h>
 #include <hd44780ioClass/hd44780_I2Cexp.h> // include i/o class header
 
+#include <dht.h> //Library to read the temp and humidity sensor
 #include "Romeo_keys.h"
-//MotorTestBLBLA
+
 
 hd44780_I2Cexp lcd;
 
@@ -23,12 +24,14 @@ const struct CITY_TIME_DIF CITIES [] {
 int tz = 0;
 long readSensor = 0;
 float temp;
+float hum;
 boolean timeZoneChoosen = false; //Bool to set the local time or a time of a city
 boolean ampm = false; //Bool to change between 12h clock and 24h
 
 
 //Pin deklaration für den Button und den Temperatur Sensor
 const int btnPin = 7;
+dht DHT; //Create a DHT object (Temp&Humidity Sensor)
 const int tempSensor=A4;
 
 class Zeit {
@@ -158,12 +161,13 @@ void printhhmmss(class Zeit &z)
 void printHumidityTemp (void)
 {
 	lcd.setCursor(0,1);
-	if (temp > 100) lcd.print("Sensor defekt");
+	if (temp == 0) lcd.print("Sensor defekt");
 	else {
 		lcd.print(temp);
-		lcd.print(" ");
 		lcd.print((char)223);
-		lcd.print("C");
+		lcd.print("C   ");
+		lcd.print(hum);
+		lcd.print("%");
 	}
 }
 
@@ -181,8 +185,11 @@ int homeScreen(int key)
 {
 	if (readSensor < millis())
 	{	
-		temp=analogRead(tempSensor);
-		temp=(temp*500)/1023;
+		int readData = DHT.read22(tempSensor);
+		temp = DHT.temperature;
+		hum = DHT.humidity;
+		//temp=analogRead(tempSensor);
+		//temp=(temp*500)/1023;
 		printHumidityTemp();
 		readSensor = millis() + 5000;
 	}

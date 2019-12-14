@@ -105,6 +105,7 @@
       <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
       <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
       <Value>..\include\libraries\DHTlib</Value>
+      <Value>..\include\libraries\Arduino-PID-Library-master</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -151,6 +152,7 @@
       <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
       <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
       <Value>..\include\libraries\DHTlib</Value>
+      <Value>..\include\libraries\Arduino-PID-Library-master</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -165,6 +167,11 @@
       <Value>libm</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>C:\Users\cyril\Documents\Atmel Studio\7.0\ebs_Projektarbeit_bewertet\99_Projektarbeit_COC_BRA\99_Projektarbeit_COC_BRA\Projektarbeit_COC_BRA\include\libraries\Arduino-PID-Library-master</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.LibrarySearchPaths>
   <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
   <avrgcccpp.assembler.general.IncludePaths>
     <ListValues>
@@ -221,6 +228,7 @@
       <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
       <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
       <Value>..\include\libraries\DHTlib</Value>
+      <Value>..\include\libraries\Arduino-PID-Library-master</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -267,6 +275,7 @@
       <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
       <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
       <Value>..\include\libraries\DHTlib</Value>
+      <Value>..\include\libraries\Arduino-PID-Library-master</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -281,6 +290,11 @@
       <Value>libm</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>C:\Users\cyril\Documents\Atmel Studio\7.0\ebs_Projektarbeit_bewertet\99_Projektarbeit_COC_BRA\99_Projektarbeit_COC_BRA\Projektarbeit_COC_BRA\include\libraries\Arduino-PID-Library-master</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.LibrarySearchPaths>
   <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
   <avrgcccpp.assembler.general.IncludePaths>
     <ListValues>
@@ -292,6 +306,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="include\libraries\Arduino-PID-Library-master\PID_v1.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\libraries\DHTlib\dht.h">
       <SubType>compile</SubType>
     </Compile>
@@ -328,6 +345,9 @@
     <Compile Include="Sketch.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\libraries\Arduino-PID-Library-master\PID_v1.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\libraries\DHTlib\dht.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -356,6 +376,7 @@
   <ItemGroup>
     <Folder Include="include\" />
     <Folder Include="include\libraries\" />
+    <Folder Include="include\libraries\Arduino-PID-Library-master\" />
     <Folder Include="include\libraries\DHTlib\" />
     <Folder Include="include\libraries\hd44780\" />
     <Folder Include="include\libraries\hd44780\examples\" />
@@ -367,6 +388,7 @@
     <Folder Include="include\libraries\Wire\src\utility\" />
     <Folder Include="src\" />
     <Folder Include="src\libraries\" />
+    <Folder Include="src\libraries\Arduino-PID-Library-master\" />
     <Folder Include="src\libraries\DHTlib\" />
     <Folder Include="src\libraries\hd44780\" />
     <Folder Include="src\libraries\LiquidCrystal\" />

@@ -4,6 +4,7 @@
 
 #include <dht.h> //Library für den DHT22-Sensor
 #include "Romeo_keys.h" //Library um die 5 Tasten auf dem Romeo auszuwerten
+#include <PID_v1.h>
 
 
 hd44780_I2Cexp lcd;
@@ -36,6 +37,27 @@ boolean ampm = false; //Boolean um zwischen 24h und am/pm Layout zu wechseln
 //Pin deklaration für den Button und den Temperatur Sensor
 const int btnPin = 8;
 const int tempSensor=A4;
+
+//Pins und Variablen für den DC-Motor und seine PID-Regelung
+const byte encoder0pinB = 7;
+int En_Motor = 5; //Enable Control Motor 1
+int Dir_Motor = 4; //Direction control Motor 1
+byte encoder0PinALast;
+double duration,abs_duration;//the number of the pulses
+boolean result;
+
+double val_output;//Power supplied to the motor PWM value.
+double Setpoint;
+double Kp=3, Ki=5, Kd=0;
+PID myPID(&abs_duration, &val_output, &Setpoint, Kp, Ki, Kd, DIRECT);
+
+// Counters for milliseconds during interval
+long previousMillis = 0;
+long currentMillis = 0;
+
+// One-second interval for measurements
+int interval = 1000;
+
 
 class Zeit {
 public:	
@@ -591,10 +613,26 @@ int gpsScreen(int key)
  */
 void callibratePointer() 
 {
+	analogWrite(En_Motor,0);
 	lcd.clear();
 	lcd.print("Zeiger kalibrieren");
 	delay(2000);
 	lcd.clear();
+}
+
+void advance()//Motor Forward
+{
+	digitalWrite(Dir_Motor,LOW);
+	analogWrite(En_Motor,val_output);
+}
+
+/**
+ * @brief ISR um den Interrupt durch den Encoder zu bearbeiten
+ *
+ */
+void wheelSpeed()
+{
+	duration++;
 }
 
 
@@ -660,10 +698,20 @@ void setup()
 	zeitTimeZone = zeitGMT;
 	datumTimeZone = datumGMT;
 	
-	//Button uns Sensor Pin als input definiert
+	//Pin definitionen
 	pinMode(btnPin, INPUT);
 	pinMode(tempSensor,INPUT);
+	pinMode(Dir_Motor, OUTPUT);
+	pinMode(En_Motor, OUTPUT);
+	pinMode(encoder0pinB,INPUT);
 	
+	//PID-Regler
+	Setpoint = 0; //Setpint 10 works
+	myPID.SetMode(AUTOMATIC);//PID is set to automatic mode
+	myPID.SetSampleTime(100);//Set PID sampling frequency is 100ms
+	attachInterrupt(digitalPinToInterrupt(7), wheelSpeed, CHANGE); //Pin 7 -> Interrupt 4
+	
+	previousMillis = millis();
 }
 
 /**
@@ -681,7 +729,21 @@ void loop()
 	}
 	else
 	{
-
+	//PID-Regelung
+	advance(); //Motor forward
+	currentMillis = millis();
+	if (currentMillis - previousMillis > interval)
+	{
+		previousMillis = currentMillis;
+		
+		abs_duration=duration * 60 / 1920;
+			
+		result=myPID.Compute();//PID conversion is complete and returns 1
+		if(result)
+		{
+			duration = 0; //Count clear, wait for the next count
+		}
+	}
 	Watch();
 	if(weckerStatus&&(zeitLocal.GetHours()==weckzeit.GetHours())&&(zeitLocal.GetMinutes()==weckzeit.GetMinutes())&&(zeitLocal.GetSeconds()==weckzeit.GetSeconds())) buzzer = 1;
 	input = getkey();

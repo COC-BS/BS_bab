@@ -1,14 +1,14 @@
 ﻿#include <wire.h>
 #include <hd44780.h>
-#include <hd44780ioClass/hd44780_I2Cexp.h> // include i/o class header
+#include <hd44780ioClass/hd44780_I2Cexp.h>
 
-#include <dht.h> //Library to read the temp and humidity sensor
-#include "Romeo_keys.h"
+#include <dht.h> //Library für den DHT22-Sensor
+#include "Romeo_keys.h" //Library um die 5 Tasten auf dem Romeo auszuwerten
 
 
 hd44780_I2Cexp lcd;
 
-//Strukt um Städte und deren Zweitverschiebung zu GMT (London)
+//Strukt um Städte und deren Zweitverschiebung zu GMT (London) abzuspeichern
 struct CITY_TIME_DIF {
 	String name;
 	int timediff;
@@ -21,17 +21,20 @@ const struct CITY_TIME_DIF CITIES [] {
 	{ "Bruessel",  1, "BRU"},{"Washington",  -5, "WAS"},{"Singapur", 8, "SIN"},{"Sydney", 11, "SYD"}
 	};
 
-int tz = 0;
-long readSensor = 0;
+int tz = 0; //Variable um durch das "CITIES"-Struct zu wechseln
+
+//Sensorobjekt und Variabeln zur Sensorauswertung
+dht DHT;
+long readSensor = 0; 
 float temp;
 float hum;
-boolean timeZoneChoosen = false; //Bool to set the local time or a time of a city
-boolean ampm = false; //Bool to change between 12h clock and 24h
+
+boolean timeZoneChoosen = false; //Boolean um die Lokalzeit oder die Zeit einer Stadt anzuzeigen
+boolean ampm = false; //Boolean um zwischen 24h und am/pm Layout zu wechseln
 
 
 //Pin deklaration für den Button und den Temperatur Sensor
-const int btnPin = 7;
-dht DHT; //Create a DHT object (Temp&Humidity Sensor)
+const int btnPin = 8;
 const int tempSensor=A4;
 
 class Zeit {
@@ -75,7 +78,6 @@ class Zeit zeitLocal(17,59,45);
 class Zeit weckzeit(18,0,0);
 boolean weckerStatus = false;
 int buzzer = 0;
-
 
 //Ausgangsdatum
 class Datum datumGMT(14,12,2019);
@@ -363,6 +365,7 @@ int homeScreen(int key)
  * 
  * Stellt sicher, dass die Zeiten richtig sind. 
  * Zwischen 0 und kleiner als 24.
+ * Ändert das Datum bei Zeitübertrag.
  */
 void calculateTime() {
 	zeitTimeZone.hh_= zeitGMT.hh_ + CITIES[tz].timediff;
@@ -477,7 +480,15 @@ int setTimeZone(int key)
 	return input;
 }
 
-
+/**
+ * @brief Zeigt den Weckerstatus und die Weckzeit
+ *
+ * Zeigt den Weckerstatus und die Weckzeit auf dem LCD	
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int alarmScreen(int key)
 {
 	lcd.setCursor(0,0);
@@ -493,6 +504,16 @@ int alarmScreen(int key)
 	return key;
 }
 
+/**
+ * @brief Anzeige um die Weckzeit zu ändern
+ *
+ * Zeigt die Weckzeit auf dem LCD
+ * Durch die Taster auf dem Romeo kann die Weckzeit geändert werden	
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int changeAlarm (int key)
 {
 	lcd.setCursor(0,0);
@@ -506,12 +527,27 @@ int changeAlarm (int key)
 	return key;
 }
 
+/**
+ * @brief Schaltet den Wecker ein oder aus
+ *
+ * @return 0
+ */
 int setAlarm (void)
 {
 	weckerStatus = !weckerStatus;
 	return 0;
 }
 
+/**
+ * @brief Zeigt Zeit und Datum auf dem LCD
+ *
+ * Zeigt je nach Einstellungen die Lokalzeit und das Lokaldatum
+ * oder die Zeit, den Kürzel und das Datum einer Stadt an
+ 
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int dateScreen(int key)
 {
 	lcd.setCursor(0,0);
@@ -532,6 +568,15 @@ int dateScreen(int key)
 	return key;
 }
 
+/**
+ * @brief Zeigt die GPS-DAten an
+ *
+ *
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int gpsScreen(int key)
 {
 	lcd.setCursor(0,0);
@@ -630,14 +675,13 @@ void setup()
 void loop()
 {
 	//Button-Pin auslesen
-	/*
 	if (digitalRead(btnPin) == HIGH)
 	{
 		callibratePointer();
 	}
 	else
 	{
-	*/
+
 	Watch();
 	if(weckerStatus&&(zeitLocal.GetHours()==weckzeit.GetHours())&&(zeitLocal.GetMinutes()==weckzeit.GetMinutes())&&(zeitLocal.GetSeconds()==weckzeit.GetSeconds())) buzzer = 1;
 	input = getkey();
@@ -694,7 +738,7 @@ void loop()
 	}
 	if(newmenu >= 0) menu = newmenu;
 
-	//} //else Klammer
+	} //else Klammer
 }
 
 

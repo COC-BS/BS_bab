@@ -99,7 +99,7 @@ void loop()
 //-------------- Motor PID -----------------------------
 //-------------------------------------------------------------
 
-
+/*
 const byte encoder0pinA = 6;//A pin 
 const byte encoder0pinB = 7;//B pin 
 int E_left =5; //Enable Control Motor 1
@@ -173,7 +173,7 @@ void loop()
 	}
 	}
 }
-
+*/
 
 
 
@@ -182,7 +182,7 @@ void loop()
 //-------------- Interrupt Button -----------------------------
 //-------------------------------------------------------------
 
-/*
+
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -228,4 +228,3 @@ void loop() {
 	}
 	
 }
-*/

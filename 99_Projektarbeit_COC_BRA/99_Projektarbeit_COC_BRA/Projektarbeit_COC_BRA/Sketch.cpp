@@ -307,14 +307,14 @@ void calculateTime() {
 	}
 	if (zeitTimeZone.hh_ < 0)
 	{
-		zeitTimeZone.hh_ = 24 - zeitTimeZone.hh_;
+		zeitTimeZone.hh_ = 24 + zeitTimeZone.hh_;
 		/*
 		datumTimeZone.DD_ -= 1;
 		if (datumTimeZone.DD_ = 0)
 		{
 			datumTimeZone.MM_ -= 1;
-			if (datumTimeZone.MM_ != 0)
 			{
+			if (datumTimeZone.MM_ != 0)
 				datumTimeZone.DD_ = datumTimeZone.DaysOfMonth();	
 			}
 			else

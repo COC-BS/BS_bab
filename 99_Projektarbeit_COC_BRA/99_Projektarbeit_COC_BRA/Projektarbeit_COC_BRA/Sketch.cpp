@@ -48,6 +48,21 @@ public:
 	int GetMinutes();
 	int GetSeconds();
  };
+ 
+ class Datum {
+	int YYYY_;
+	int MM_;
+	int DD_;
+	int set_;
+public:
+	Datum(int d, int m, int y){DD_=d; MM_=m;YYYY_=y; set_ = 0;};
+	int Change(int key);
+	void Tick();
+	int DaysOfMonth();
+	int GetYear();
+	int GetMonth();
+	int GetDay();
+};
 
 //Ausgangsuhrzeit
 class Zeit zeitGMT(21,31,0);
@@ -55,6 +70,14 @@ class Zeit zeitGMT(21,31,0);
 class Zeit zeitTimeZone(12,0,0);
 //Lokalzeit
 class Zeit zeitLocal(22,31,0);
+
+//Ausgangsdatum
+class Datum datumGMT(10,12,2019);
+//Datum für die verschiedenen Zeitzonen
+class Datum datumTimeZone(1,9,2000);
+//Lokales Datum
+class Datum datumLocal(15,10,1995);
+
 
 
 /**
@@ -79,6 +102,49 @@ int Zeit::Tick(void){
 int Zeit::GetHours(){return hh_;};
 int Zeit::GetMinutes(){return mm_;};
 int Zeit::GetSeconds(){return ss_;};
+	
+/**
+ * @brief increments the calendar date by one day 
+ *
+ * 
+ * @return none
+ */
+void Datum::Tick(void){
+	DD_ += 1;  // Tage
+	if (DD_ > DaysOfMonth()) {
+		DD_ = 1;
+		MM_ += 1; // Monate
+		if (MM_ > 12) {
+			MM_ = 1;
+			YYYY_ += 1; // Jahre
+		}
+	}
+}
+
+/**
+ * @brief calculates the days of a month in a year
+ *
+ * returns 28,29,30 or 31 in accordance to month and year. every 4th year is considered a leap year. No correction dates
+ * are taken into account
+ *
+ * @param[in] d struct Datum_S,
+ * 
+ * @return int, 28,29,30 or 31 in accordance to month and year
+ */
+int Datum::DaysOfMonth(void){
+	switch (MM_) {
+	case 2:
+		if (YYYY_ % 4 != 0) return 28;
+		else return 29;
+	case 4: case 6: case 9: case 11:
+		return 30;
+	default:
+		return 31;
+	}
+}
+int Datum::GetYear(){return YYYY_;};
+int Datum::GetMonth(){return MM_;};
+int Datum::GetDay(){return DD_;};
 
 /**
  * @brief A watch for the arduino, counting on the millis()
@@ -94,10 +160,9 @@ void Watch()
 	static long target = INTERVAL;
 	if (millis() > target)	{
 		target += INTERVAL;
-		zeitGMT.Tick();
-		zeitTimeZone.Tick();
-		zeitLocal.Tick();
-		//if(zeit1.Tick()) datum1.Tick(); //Wenn die Zeit bei 24.00 ankommt wird ret = 1 gesetzt und das Datum eins weitergestellt
+		if(zeitGMT.Tick()) datumGMT.Tick(); //Wenn die Zeit bei 24.00 ankommt wird ret = 1 gesetzt und das Datum eins weitergestellt
+		if(zeitTimeZone.Tick()) datumTimeZone.Tick();
+		if(zeitLocal.Tick()) datumLocal.Tick(); 
 	}
 #undef INTERVAL
 }
@@ -113,6 +178,7 @@ void Watch()
 /**
  * @brief print the given time in a "hh:mm:ss"-frame on a line of an lcd
  * 
+ * Checks if the time format is 24h or am/pm and sets the format
  * requires the library LiquidCrystal or LiquidCrystal_I2C
  *
  * @param[in] zeit: struct 
@@ -148,6 +214,25 @@ void printhhmmss(class Zeit &z)
 	lcd.print(z.GetSeconds());
 	if (ampm && z.GetHours() > 12) lcd.print(" PM");
 	else if (ampm && z.GetHours() <= 12) lcd.print(" AM");
+}
+
+/**
+ * @brief print the given date in a "DD:MM:YYYY"-frame on a line of an lcd
+ * 
+ * requires the library LiquidCrystal or LiquidCrystal_I2C
+ *
+ * @param[in] datum: struct 
+ * 
+ * @return void
+ */
+void printddmmyyyy(class Datum &d)
+{
+	if(d.GetDay()<=9)lcd.print(" ");
+	lcd.print(d.GetDay());
+	if(d.GetMonth()<=9)lcd.print(". "); else lcd.print(".");
+	lcd.print(d.GetMonth());
+	lcd.print(".");
+	lcd.print(d.GetYear());
 }
 
 /**
@@ -313,6 +398,15 @@ int setTimeZone(int key)
 }
 
 
+int dateAlarmScreen(int key)
+{
+	lcd.setCursor(0,0);
+	printddmmyyyy(datumLocal);
+	
+	return key;
+}
+
+
 /**
  * @brief set zero position of the three pointer
  *
@@ -336,8 +430,6 @@ typedef int (*PFP_T)(void);
  */
 struct FSM_TAG
 {
-	//! text to print on the upper line of the lcd
-	const char * text1;
 	//! these fife members contain the number of the menu that is to be jumped to if the corresponding key is hit 
 	int up, left, down, right, ok; 
 	//! function active will be called as long as the menu is active
@@ -349,21 +441,12 @@ struct FSM_TAG
 };
 
 
-const char str0[] PROGMEM = ""; //Keyword PROGMEM saves Data to the Flash-Memory
-const char str1[] PROGMEM = "LOKALZEIT";
-const char str2[] PROGMEM = "NEW YORK";
-const char str3[] PROGMEM = "WAKE-UP TIME";
-const char str4[] PROGMEM = "SET WAKE-UP TIME";
-const char str5[] PROGMEM = "TIME";
-const char str6[] PROGMEM = "SET TIME";
-const char str7[] PROGMEM = "DATE";
-const char str8[] PROGMEM = "SET DATE";
-
 const struct FSM_TAG watchmenu[] =
 {
-	//            ^   <   v   >  ok
-	/*0*/ {str0, -1, -1,  -1,  1, 0,	homeScreen,		NULL,		changeAMPM},
-	/*1*/ {str0, -1,  0,  -1,  -1, 0,	setTimeZone,		NULL,	chooseTimeZone},
+	//      ^   <    v    >  ok
+	/*0*/ {-1, -1,   2,   1,  0,	homeScreen,			NULL,		changeAMPM},
+	/*1*/ {-1,  0,  -1,  -1,  0,	setTimeZone,		NULL,	chooseTimeZone},
+	/*2*/ {0,  -1,  -1,  -1, -1,	dateAlarmScreen,	NULL,	NULL},		
 		
 
 };
@@ -408,12 +491,14 @@ void setup()
 void loop()
 {
 	//Button-Pin auslesen
+	/*
 	if (digitalRead(btnPin) == HIGH)
 	{
 		callibratePointer();
 	}
 	else
 	{
+	*/
 	Watch();
 	input = getkey();
 	if (watchmenu[menu].active) 
@@ -460,12 +545,8 @@ void loop()
 		newmenu = 0;
 		break;
 	}
-	if(newmenu >= 0){
-		menu = newmenu;
-		lcd.setCursor(0, 0);
-		lcd.print(ROM(watchmenu[menu].text1));
-	}
-	} //else Klammer
+
+	//} //else Klammer
 }
 
 

@@ -300,30 +300,26 @@ int homeScreen(int key)
  */
 void calculateTime() {
 	zeitTimeZone.hh_= zeitGMT.hh_ + CITIES[tz].timediff;
+	datumTimeZone = datumGMT;
 	if (zeitTimeZone.hh_ > 23)
 	{
 		zeitTimeZone.hh_ -= 24;
-		//datumTimeZone.Tick();
+		datumTimeZone.Tick();
 	}
 	if (zeitTimeZone.hh_ < 0)
 	{
 		zeitTimeZone.hh_ = 24 + zeitTimeZone.hh_;
-		/*
 		datumTimeZone.DD_ -= 1;
-		if (datumTimeZone.DD_ = 0)
+		if (datumTimeZone.DD_ == 0)
 		{
 			datumTimeZone.MM_ -= 1;
-			{
-			if (datumTimeZone.MM_ != 0)
-				datumTimeZone.DD_ = datumTimeZone.DaysOfMonth();	
-			}
+			if (datumTimeZone.MM_ != 0)	datumTimeZone.DD_ = datumTimeZone.DaysOfMonth();	
 			else
 			{
 				datumTimeZone.YYYY_ -= 1;
 				datumTimeZone.DD_ = 31;
 			}
 		}
-		*/
 	}
 	
 }
@@ -410,6 +406,8 @@ int setTimeZone(int key)
 	lcd.print(CITIES[tz].name);
 	lcd.setCursor(0,1);
 	printhhmmss(zeitTimeZone);
+	//lcd.setCursor(11,0);
+	//printddmmyyyy(datumTimeZone);
 	return input;
 }
 

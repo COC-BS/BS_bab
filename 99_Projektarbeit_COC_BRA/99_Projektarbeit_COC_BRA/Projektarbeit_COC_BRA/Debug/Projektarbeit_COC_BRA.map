@@ -1253,7 +1253,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x4194
+.text           0x00000000     0x41dc
  *(.vectors)
  .vectors       0x00000000       0xac C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
                 0x00000000                __vector_default
@@ -1439,488 +1439,488 @@ END GROUP
                 0x00000656       0x74 Sketch.o
                 0x00000656                _Z13printddmmyyyyR5Datum
  .text._Z15dateAlarmScreeni
-                0x000006ca       0x22 Sketch.o
+                0x000006ca       0x60 Sketch.o
                 0x000006ca                _Z15dateAlarmScreeni
  .text._Z17printHumidityTempv
-                0x000006ec       0x92 Sketch.o
-                0x000006ec                _Z17printHumidityTempv
+                0x0000072a       0x92 Sketch.o
+                0x0000072a                _Z17printHumidityTempv
  .text._Z10homeScreeni
-                0x0000077e       0xf8 Sketch.o
-                0x0000077e                _Z10homeScreeni
+                0x000007bc       0xf8 Sketch.o
+                0x000007bc                _Z10homeScreeni
  .text._Z13calculateTimev
-                0x00000876       0x56 Sketch.o
-                0x00000876                _Z13calculateTimev
+                0x000008b4       0x56 Sketch.o
+                0x000008b4                _Z13calculateTimev
  .text._Z14changeTimeZonei
-                0x000008cc       0x68 Sketch.o
-                0x000008cc                _Z14changeTimeZonei
+                0x0000090a       0x68 Sketch.o
+                0x0000090a                _Z14changeTimeZonei
  .text._Z11setTimeZonei
-                0x00000934       0x52 Sketch.o
-                0x00000934                _Z11setTimeZonei
- .text.setup    0x00000986       0x82 Sketch.o
-                0x00000986                setup
- .text.loop     0x00000a08      0x1a4 Sketch.o
-                0x00000a08                loop
+                0x00000972       0x52 Sketch.o
+                0x00000972                _Z11setTimeZonei
+ .text.setup    0x000009c4       0x94 Sketch.o
+                0x000009c4                setup
+ .text.loop     0x00000a58      0x1a4 Sketch.o
+                0x00000a58                loop
  .text.startup._GLOBAL__sub_I_lcd
-                0x00000bac      0x276 Sketch.o
+                0x00000bfc      0x26e Sketch.o
  .text.exit._GLOBAL__sub_D_lcd
-                0x00000e22       0x26 Sketch.o
+                0x00000e6a       0x26 Sketch.o
  .text._ZN14hd44780_I2Cexp14iosetBacklightEh
-                0x00000e48       0x72 Sketch.o
-                0x00000e48                _ZN14hd44780_I2Cexp14iosetBacklightEh
+                0x00000e90       0x72 Sketch.o
+                0x00000e90                _ZN14hd44780_I2Cexp14iosetBacklightEh
  .text._ZN14hd44780_I2Cexp10write4bitsEhN7hd447806iotypeE
-                0x00000eba       0x48 Sketch.o
-                0x00000eba                _ZN14hd44780_I2Cexp10write4bitsEhN7hd447806iotypeE
+                0x00000f02       0x48 Sketch.o
+                0x00000f02                _ZN14hd44780_I2Cexp10write4bitsEhN7hd447806iotypeE
  .text._ZN14hd44780_I2Cexp7iowriteEN7hd447806iotypeEh
-                0x00000f02       0xe0 Sketch.o
-                0x00000f02                _ZN14hd44780_I2Cexp7iowriteEN7hd447806iotypeEh
+                0x00000f4a       0xe0 Sketch.o
+                0x00000f4a                _ZN14hd44780_I2Cexp7iowriteEN7hd447806iotypeEh
  .text._ZN14hd44780_I2Cexp6ioreadEN7hd447806iotypeE
-                0x00000fe2      0x236 Sketch.o
-                0x00000fe2                _ZN14hd44780_I2Cexp6ioreadEN7hd447806iotypeE
+                0x0000102a      0x236 Sketch.o
+                0x0000102a                _ZN14hd44780_I2Cexp6ioreadEN7hd447806iotypeE
  .text._ZN14hd44780_I2Cexp11autocfg8574Ev
-                0x00001218      0x198 Sketch.o
-                0x00001218                _ZN14hd44780_I2Cexp11autocfg8574Ev
+                0x00001260      0x198 Sketch.o
+                0x00001260                _ZN14hd44780_I2Cexp11autocfg8574Ev
  .text._ZN14hd44780_I2Cexp15autocfgMCP23008Ev
-                0x000013b0      0x13c Sketch.o
-                0x000013b0                _ZN14hd44780_I2Cexp15autocfgMCP23008Ev
+                0x000013f8      0x13c Sketch.o
+                0x000013f8                _ZN14hd44780_I2Cexp15autocfgMCP23008Ev
  .text._ZN14hd44780_I2Cexp6ioinitEv
-                0x000014ec      0x19a Sketch.o
-                0x000014ec                _ZN14hd44780_I2Cexp6ioinitEv
+                0x00001534      0x19a Sketch.o
+                0x00001534                _ZN14hd44780_I2Cexp6ioinitEv
  .text._ZN3dht11_readSensorEhhh
-                0x00001686      0x184 src/libraries/DHTlib/dht.o
-                0x00001686                _ZN3dht11_readSensorEhhh
+                0x000016ce      0x184 src/libraries/DHTlib/dht.o
+                0x000016ce                _ZN3dht11_readSensorEhhh
  .text._ZN3dht4readEh
-                0x0000180a       0xd4 src/libraries/DHTlib/dht.o
-                0x0000180a                _ZN3dht4readEh
+                0x00001852       0xd4 src/libraries/DHTlib/dht.o
+                0x00001852                _ZN3dht4readEh
  .text._ZN7hd447806ioinitEv
-                0x000018de        0x6 src/libraries/hd44780/hd44780.o
-                0x000018de                _ZN7hd447806ioinitEv
+                0x00001926        0x6 src/libraries/hd44780/hd44780.o
+                0x00001926                _ZN7hd447806ioinitEv
  .text._ZN7hd447806ioreadENS_6iotypeE
-                0x000018e4        0x6 src/libraries/hd44780/hd44780.o
-                0x000018e4                _ZN7hd447806ioreadENS_6iotypeE
+                0x0000192c        0x6 src/libraries/hd44780/hd44780.o
+                0x0000192c                _ZN7hd447806ioreadENS_6iotypeE
  .text._ZN7hd4478014iosetBacklightEh
-                0x000018ea        0x6 src/libraries/hd44780/hd44780.o
-                0x000018ea                _ZN7hd4478014iosetBacklightEh
+                0x00001932        0x6 src/libraries/hd44780/hd44780.o
+                0x00001932                _ZN7hd4478014iosetBacklightEh
  .text._ZN7hd44780C2Ev
-                0x000018f0       0x5a src/libraries/hd44780/hd44780.o
-                0x000018f0                _ZN7hd44780C2Ev
-                0x000018f0                _ZN7hd44780C1Ev
+                0x00001938       0x5a src/libraries/hd44780/hd44780.o
+                0x00001938                _ZN7hd44780C2Ev
+                0x00001938                _ZN7hd44780C1Ev
  .text._ZN7hd447809backlightEv
-                0x0000194a       0x10 src/libraries/hd44780/hd44780.o
-                0x0000194a                _ZN7hd447809backlightEv
+                0x00001992       0x10 src/libraries/hd44780/hd44780.o
+                0x00001992                _ZN7hd447809backlightEv
  .text._ZN7hd4478011noBacklightEv
-                0x0000195a       0x10 src/libraries/hd44780/hd44780.o
-                0x0000195a                _ZN7hd4478011noBacklightEv
+                0x000019a2       0x10 src/libraries/hd44780/hd44780.o
+                0x000019a2                _ZN7hd4478011noBacklightEv
  .text._ZN7hd447807commandEh
-                0x0000196a       0x6e src/libraries/hd44780/hd44780.o
-                0x0000196a                _ZN7hd447807commandEh
+                0x000019b2       0x6e src/libraries/hd44780/hd44780.o
+                0x000019b2                _ZN7hd447807commandEh
  .text._ZN7hd447805clearEv
-                0x000019d8        0x6 src/libraries/hd44780/hd44780.o
-                0x000019d8                _ZN7hd447805clearEv
+                0x00001a20        0x6 src/libraries/hd44780/hd44780.o
+                0x00001a20                _ZN7hd447805clearEv
  .text._ZN7hd447804homeEv
-                0x000019de        0x6 src/libraries/hd44780/hd44780.o
-                0x000019de                _ZN7hd447804homeEv
+                0x00001a26        0x6 src/libraries/hd44780/hd44780.o
+                0x00001a26                _ZN7hd447804homeEv
  .text._ZN7hd447809setCursorEhh
-                0x000019e4       0x3c src/libraries/hd44780/hd44780.o
-                0x000019e4                _ZN7hd447809setCursorEhh
+                0x00001a2c       0x3c src/libraries/hd44780/hd44780.o
+                0x00001a2c                _ZN7hd447809setCursorEhh
  .text._ZN7hd447807displayEv
-                0x00001a20       0x10 src/libraries/hd44780/hd44780.o
-                0x00001a20                _ZN7hd447807displayEv
+                0x00001a68       0x10 src/libraries/hd44780/hd44780.o
+                0x00001a68                _ZN7hd447807displayEv
  .text._ZN7hd447805beginEhhh
-                0x00001a30      0x134 src/libraries/hd44780/hd44780.o
-                0x00001a30                _ZN7hd447805beginEhhh
+                0x00001a78      0x134 src/libraries/hd44780/hd44780.o
+                0x00001a78                _ZN7hd447805beginEhhh
  .text._ZN7hd447808noCursorEv
-                0x00001b64        0xe src/libraries/hd44780/hd44780.o
-                0x00001b64                _ZN7hd447808noCursorEv
+                0x00001bac        0xe src/libraries/hd44780/hd44780.o
+                0x00001bac                _ZN7hd447808noCursorEv
  .text._ZN7hd447807noBlinkEv
-                0x00001b72        0xe src/libraries/hd44780/hd44780.o
-                0x00001b72                _ZN7hd447807noBlinkEv
+                0x00001bba        0xe src/libraries/hd44780/hd44780.o
+                0x00001bba                _ZN7hd447807noBlinkEv
  .text._ZN7hd447806_writeEh
-                0x00001b80       0x5e src/libraries/hd44780/hd44780.o
-                0x00001b80                _ZN7hd447806_writeEh
+                0x00001bc8       0x5e src/libraries/hd44780/hd44780.o
+                0x00001bc8                _ZN7hd447806_writeEh
  .text._ZN7hd447805writeEh
-                0x00001bde       0x48 src/libraries/hd44780/hd44780.o
-                0x00001bde                _ZN7hd447805writeEh
+                0x00001c26       0x48 src/libraries/hd44780/hd44780.o
+                0x00001c26                _ZN7hd447805writeEh
  .text.twi_init
-                0x00001c26       0x3c src/libraries/Wire/src/utility/twi.o
-                0x00001c26                twi_init
+                0x00001c6e       0x3c src/libraries/Wire/src/utility/twi.o
+                0x00001c6e                twi_init
  .text.twi_readFrom
-                0x00001c62       0x90 src/libraries/Wire/src/utility/twi.o
-                0x00001c62                twi_readFrom
+                0x00001caa       0x90 src/libraries/Wire/src/utility/twi.o
+                0x00001caa                twi_readFrom
  .text.twi_writeTo
-                0x00001cf2       0xac src/libraries/Wire/src/utility/twi.o
-                0x00001cf2                twi_writeTo
+                0x00001d3a       0xac src/libraries/Wire/src/utility/twi.o
+                0x00001d3a                twi_writeTo
  .text.twi_transmit
-                0x00001d9e       0x50 src/libraries/Wire/src/utility/twi.o
-                0x00001d9e                twi_transmit
+                0x00001de6       0x50 src/libraries/Wire/src/utility/twi.o
+                0x00001de6                twi_transmit
  .text.twi_attachSlaveRxEvent
-                0x00001dee        0xa src/libraries/Wire/src/utility/twi.o
-                0x00001dee                twi_attachSlaveRxEvent
+                0x00001e36        0xa src/libraries/Wire/src/utility/twi.o
+                0x00001e36                twi_attachSlaveRxEvent
  .text.twi_attachSlaveTxEvent
-                0x00001df8        0xa src/libraries/Wire/src/utility/twi.o
-                0x00001df8                twi_attachSlaveTxEvent
+                0x00001e40        0xa src/libraries/Wire/src/utility/twi.o
+                0x00001e40                twi_attachSlaveTxEvent
  .text.twi_stop
-                0x00001e02       0x14 src/libraries/Wire/src/utility/twi.o
-                0x00001e02                twi_stop
+                0x00001e4a       0x14 src/libraries/Wire/src/utility/twi.o
+                0x00001e4a                twi_stop
  .text.twi_releaseBus
-                0x00001e16        0xc src/libraries/Wire/src/utility/twi.o
-                0x00001e16                twi_releaseBus
+                0x00001e5e        0xc src/libraries/Wire/src/utility/twi.o
+                0x00001e5e                twi_releaseBus
  .text.__vector_36
-                0x00001e22      0x25a src/libraries/Wire/src/utility/twi.o
-                0x00001e22                __vector_36
+                0x00001e6a      0x25a src/libraries/Wire/src/utility/twi.o
+                0x00001e6a                __vector_36
  .text._ZN7TwoWire9availableEv
-                0x0000207c       0x10 src/libraries/Wire/src/Wire.o
-                0x0000207c                _ZN7TwoWire9availableEv
+                0x000020c4       0x10 src/libraries/Wire/src/Wire.o
+                0x000020c4                _ZN7TwoWire9availableEv
  .text._ZN7TwoWire4readEv
-                0x0000208c       0x28 src/libraries/Wire/src/Wire.o
-                0x0000208c                _ZN7TwoWire4readEv
+                0x000020d4       0x28 src/libraries/Wire/src/Wire.o
+                0x000020d4                _ZN7TwoWire4readEv
  .text._ZN7TwoWire4peekEv
-                0x000020b4       0x1e src/libraries/Wire/src/Wire.o
-                0x000020b4                _ZN7TwoWire4peekEv
+                0x000020fc       0x1e src/libraries/Wire/src/Wire.o
+                0x000020fc                _ZN7TwoWire4peekEv
  .text._ZN7TwoWire5flushEv
-                0x000020d2        0x2 src/libraries/Wire/src/Wire.o
-                0x000020d2                _ZN7TwoWire5flushEv
+                0x0000211a        0x2 src/libraries/Wire/src/Wire.o
+                0x0000211a                _ZN7TwoWire5flushEv
  .text._ZN7TwoWire16onReceiveServiceEPhi
-                0x000020d4       0x54 src/libraries/Wire/src/Wire.o
-                0x000020d4                _ZN7TwoWire16onReceiveServiceEPhi
+                0x0000211c       0x54 src/libraries/Wire/src/Wire.o
+                0x0000211c                _ZN7TwoWire16onReceiveServiceEPhi
  .text._ZN7TwoWire16onRequestServiceEv
-                0x00002128       0x18 src/libraries/Wire/src/Wire.o
-                0x00002128                _ZN7TwoWire16onRequestServiceEv
+                0x00002170       0x18 src/libraries/Wire/src/Wire.o
+                0x00002170                _ZN7TwoWire16onRequestServiceEv
  .text._ZN7TwoWire5writeEPKhj
-                0x00002140       0x5a src/libraries/Wire/src/Wire.o
-                0x00002140                _ZN7TwoWire5writeEPKhj
+                0x00002188       0x5a src/libraries/Wire/src/Wire.o
+                0x00002188                _ZN7TwoWire5writeEPKhj
  .text._ZN7TwoWire5writeEh
-                0x0000219a       0x5e src/libraries/Wire/src/Wire.o
-                0x0000219a                _ZN7TwoWire5writeEh
+                0x000021e2       0x5e src/libraries/Wire/src/Wire.o
+                0x000021e2                _ZN7TwoWire5writeEh
  .text._ZN7TwoWireC2Ev
-                0x000021f8       0x20 src/libraries/Wire/src/Wire.o
-                0x000021f8                _ZN7TwoWireC1Ev
-                0x000021f8                _ZN7TwoWireC2Ev
+                0x00002240       0x20 src/libraries/Wire/src/Wire.o
+                0x00002240                _ZN7TwoWireC1Ev
+                0x00002240                _ZN7TwoWireC2Ev
  .text._ZN7TwoWire5beginEv
-                0x00002218       0x24 src/libraries/Wire/src/Wire.o
-                0x00002218                _ZN7TwoWire5beginEv
+                0x00002260       0x24 src/libraries/Wire/src/Wire.o
+                0x00002260                _ZN7TwoWire5beginEv
  .text._ZN7TwoWire17beginTransmissionEh
-                0x0000223c       0x14 src/libraries/Wire/src/Wire.o
-                0x0000223c                _ZN7TwoWire17beginTransmissionEh
+                0x00002284       0x14 src/libraries/Wire/src/Wire.o
+                0x00002284                _ZN7TwoWire17beginTransmissionEh
  .text._ZN7TwoWire15endTransmissionEh
-                0x00002250       0x26 src/libraries/Wire/src/Wire.o
-                0x00002250                _ZN7TwoWire15endTransmissionEh
+                0x00002298       0x26 src/libraries/Wire/src/Wire.o
+                0x00002298                _ZN7TwoWire15endTransmissionEh
  .text._ZN7TwoWire11requestFromEhhmhh
-                0x00002276       0xa8 src/libraries/Wire/src/Wire.o
-                0x00002276                _ZN7TwoWire11requestFromEhhmhh
+                0x000022be       0xa8 src/libraries/Wire/src/Wire.o
+                0x000022be                _ZN7TwoWire11requestFromEhhmhh
  .text._ZN7TwoWire11requestFromEhhh
-                0x0000231e       0x20 src/libraries/Wire/src/Wire.o
-                0x0000231e                _ZN7TwoWire11requestFromEhhh
+                0x00002366       0x20 src/libraries/Wire/src/Wire.o
+                0x00002366                _ZN7TwoWire11requestFromEhhh
  .text._ZN7TwoWire11requestFromEii
-                0x0000233e        0x6 src/libraries/Wire/src/Wire.o
-                0x0000233e                _ZN7TwoWire11requestFromEii
+                0x00002386        0x6 src/libraries/Wire/src/Wire.o
+                0x00002386                _ZN7TwoWire11requestFromEii
  .text._ZN7TwoWire15endTransmissionEv
-                0x00002344        0x6 src/libraries/Wire/src/Wire.o
-                0x00002344                _ZN7TwoWire15endTransmissionEv
+                0x0000238c        0x6 src/libraries/Wire/src/Wire.o
+                0x0000238c                _ZN7TwoWire15endTransmissionEv
  .text.startup._GLOBAL__sub_I__ZN7TwoWire8rxBufferE
-                0x0000234a        0x8 src/libraries/Wire/src/Wire.o
+                0x00002392        0x8 src/libraries/Wire/src/Wire.o
  .text.avr-libc.fplib
-                0x00002352        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00002352                __subsf3
-                0x00002354                __addsf3
+                0x0000239a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x0000239a                __subsf3
+                0x0000239c                __addsf3
  .text.avr-libc.fplib
-                0x00002360       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x00002382                __addsf3x
+                0x000023a8       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x000023ca                __addsf3x
  .text.avr-libc.fplib
-                0x0000242c        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
-                0x0000242c                __nesf2
-                0x0000242c                __eqsf2
-                0x0000242c                __cmpsf2
-                0x0000242c                __ltsf2
-                0x0000242c                __lesf2
+                0x00002474        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
+                0x00002474                __nesf2
+                0x00002474                __eqsf2
+                0x00002474                __cmpsf2
+                0x00002474                __ltsf2
+                0x00002474                __lesf2
  .text.avr-libc.fplib
-                0x00002436       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00002436                __floatunsisf
-                0x0000243a                __floatsisf
+                0x0000247e       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x0000247e                __floatunsisf
+                0x00002482                __floatsisf
  .text.avr-libc.fplib
-                0x000024b0       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
-                0x000024b0                __fp_cmp
+                0x000024f8       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
+                0x000024f8                __fp_cmp
  .text.avr-libc.fplib
-                0x000024f8        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x000024f8                __fp_inf
+                0x00002540        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00002540                __fp_inf
  .text.avr-libc.fplib
-                0x00002504        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00002504                __fp_nan
+                0x0000254c        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x0000254c                __fp_nan
  .text.avr-libc.fplib
-                0x0000250a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x0000250a                __fp_pscA
+                0x00002552        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00002552                __fp_pscA
  .text.avr-libc.fplib
-                0x00002518        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00002518                __fp_pscB
+                0x00002560        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00002560                __fp_pscB
  .text.avr-libc.fplib
-                0x00002526       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00002526                __fp_round
+                0x0000256e       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x0000256e                __fp_round
  .text.avr-libc.fplib
-                0x00002548       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x00002548                __fp_split3
-                0x00002558                __fp_splitA
+                0x00002590       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00002590                __fp_split3
+                0x000025a0                __fp_splitA
  .text.avr-libc.fplib
-                0x0000258c        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x0000258c                __fp_zero
-                0x0000258e                __fp_szero
+                0x000025d4        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x000025d4                __fp_zero
+                0x000025d6                __fp_szero
  .text.avr-libc.fplib
-                0x0000259a        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x0000259a                __mulsf3
+                0x000025e2        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x000025e2                __mulsf3
  .text.avr-libc.fplib
-                0x000025a2       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x000025c0                __mulsf3x
-                0x000025c6                __mulsf3_pse
+                0x000025ea       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x00002608                __mulsf3x
+                0x0000260e                __mulsf3_pse
  .text.__cxa_pure_virtual
-                0x00002674        0x4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
-                0x00002674                __cxa_pure_virtual
+                0x000026bc        0x4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
+                0x000026bc                __cxa_pure_virtual
  .text.initVariant
-                0x00002678        0x2 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
-                0x00002678                initVariant
+                0x000026c0        0x2 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+                0x000026c0                initVariant
  .text.startup.main
-                0x0000267a       0x26 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
-                0x0000267a                main
+                0x000026c2       0x26 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+                0x000026c2                main
  .text._ZN5Print5writeEPKhj
-                0x000026a0       0x54 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x000026a0                _ZN5Print5writeEPKhj
+                0x000026e8       0x54 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x000026e8                _ZN5Print5writeEPKhj
  .text._ZN5Print5writeEPKc
-                0x000026f4       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x000026f4                _ZN5Print5writeEPKc
+                0x0000273c       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x0000273c                _ZN5Print5writeEPKc
  .text._ZN5Print5printERK6String
-                0x0000271e       0x1c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x0000271e                _ZN5Print5printERK6String
+                0x00002766       0x1c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002766                _ZN5Print5printERK6String
  .text._ZN5Print5printEPKc
-                0x0000273a        0x4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x0000273a                _ZN5Print5printEPKc
+                0x00002782        0x4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002782                _ZN5Print5printEPKc
  .text._ZN5Print5printEc
-                0x0000273e        0xe C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x0000273e                _ZN5Print5printEc
+                0x00002786        0xe C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002786                _ZN5Print5printEc
  .text._ZN5Print11printNumberEmh
-                0x0000274c       0x92 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x0000274c                _ZN5Print11printNumberEmh
+                0x00002794       0x92 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002794                _ZN5Print11printNumberEmh
  .text._ZN5Print5printEmi
-                0x000027de       0x1a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x000027de                _ZN5Print5printEmi
+                0x00002826       0x1a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002826                _ZN5Print5printEmi
  .text._ZN5Print5printEji
-                0x000027f8        0xc C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x000027f8                _ZN5Print5printEji
+                0x00002840        0xc C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002840                _ZN5Print5printEji
  .text._ZN5Print5printEli
-                0x00002804       0x90 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00002804                _ZN5Print5printEli
+                0x0000284c       0x90 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x0000284c                _ZN5Print5printEli
  .text._ZN5Print5printEii
-                0x00002894        0xe C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00002894                _ZN5Print5printEii
+                0x000028dc        0xe C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x000028dc                _ZN5Print5printEii
  .text._ZN5Print10printFloatEdh
-                0x000028a2      0x1b6 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x000028a2                _ZN5Print10printFloatEdh
+                0x000028ea      0x1b6 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x000028ea                _ZN5Print10printFloatEdh
  .text._ZN5Print5printEdi
-                0x00002a58        0x4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
-                0x00002a58                _ZN5Print5printEdi
+                0x00002aa0        0x4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+                0x00002aa0                _ZN5Print5printEdi
  .text._ZL4RecvPVhh
-                0x00002a5c       0x1a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002aa4       0x1a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
  .text._ZL11SendControlh
-                0x00002a76       0x5c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002abe       0x5c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
  .text._ZL24USB_SendStringDescriptorPKhhh
-                0x00002ad2       0x6a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002b1a       0x6a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
  .text._ZL15USB_ClockEnablev
-                0x00002b3c       0x46 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002b84       0x46 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
  .text._ZL14SendInterfacesv
-                0x00002b82       0x2c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002bca       0x2c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
  .text._ZN6LockEPC2Eh
-                0x00002bae       0x10 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002bae                _ZN6LockEPC2Eh
-                0x00002bae                _ZN6LockEPC1Eh
+                0x00002bf6       0x10 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002bf6                _ZN6LockEPC2Eh
+                0x00002bf6                _ZN6LockEPC1Eh
  .text._Z13USB_Availableh
-                0x00002bbe       0x24 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002bbe                _Z13USB_Availableh
+                0x00002c06       0x24 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002c06                _Z13USB_Availableh
  .text._Z8USB_RecvhPvi
-                0x00002be2       0x86 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002be2                _Z8USB_RecvhPvi
+                0x00002c2a       0x86 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002c2a                _Z8USB_RecvhPvi
  .text._Z8USB_Recvh
-                0x00002c68       0x2e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002c68                _Z8USB_Recvh
+                0x00002cb0       0x2e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002cb0                _Z8USB_Recvh
  .text._Z13USB_SendSpaceh
-                0x00002c96       0x34 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002c96                _Z13USB_SendSpaceh
+                0x00002cde       0x34 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002cde                _Z13USB_SendSpaceh
  .text._Z8USB_SendhPKvi
-                0x00002cca      0x14a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002cca                _Z8USB_SendhPKvi
+                0x00002d12      0x14a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002d12                _Z8USB_SendhPKvi
  .text._Z11InitControli
-                0x00002e14       0x16 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002e14                _Z11InitControli
+                0x00002e5c       0x16 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002e5c                _Z11InitControli
  .text._Z15USB_SendControlhPKvi
-                0x00002e2a       0x4e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002e2a                _Z15USB_SendControlhPKvi
+                0x00002e72       0x4e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002e72                _Z15USB_SendControlhPKvi
  .text._Z15USB_RecvControlPvi
-                0x00002e78       0x66 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002e78                _Z15USB_RecvControlPvi
+                0x00002ec0       0x66 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002ec0                _Z15USB_RecvControlPvi
  .text.__vector_11
-                0x00002ede      0x2b4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00002ede                __vector_11
+                0x00002f26      0x2b4 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x00002f26                __vector_11
  .text._Z9USB_Flushh
-                0x00003192       0x14 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x00003192                _Z9USB_Flushh
+                0x000031da       0x14 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x000031da                _Z9USB_Flushh
  .text.__vector_10
-                0x000031a6      0x102 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x000031a6                __vector_10
+                0x000031ee      0x102 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x000031ee                __vector_10
  .text._ZN10USBDevice_6attachEv
-                0x000032a8       0x26 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
-                0x000032a8                _ZN10USBDevice_6attachEv
+                0x000032f0       0x26 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+                0x000032f0                _ZN10USBDevice_6attachEv
  .text.__vector_23
-                0x000032ce       0x94 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x000032ce                __vector_23
- .text.millis   0x00003362       0x18 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x00003362                millis
- .text.micros   0x0000337a       0x4a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x0000337a                micros
- .text.delay    0x000033c4       0x78 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x000033c4                delay
+                0x00003316       0x94 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x00003316                __vector_23
+ .text.millis   0x000033aa       0x18 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x000033aa                millis
+ .text.micros   0x000033c2       0x4a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x000033c2                micros
+ .text.delay    0x0000340c       0x78 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x0000340c                delay
  .text.delayMicroseconds
-                0x0000343c       0x16 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x0000343c                delayMicroseconds
- .text.init     0x00003452       0xac C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
-                0x00003452                init
+                0x00003484       0x16 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x00003484                delayMicroseconds
+ .text.init     0x0000349a       0xac C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+                0x0000349a                init
  .text.analogRead
-                0x000034fe       0x62 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
-                0x000034fe                analogRead
+                0x00003546       0x62 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
+                0x00003546                analogRead
  .text.turnOffPWM
-                0x00003560       0x7a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .text.pinMode  0x000035da       0x78 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000035da                pinMode
+                0x000035a8       0x7a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .text.pinMode  0x00003622       0x78 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+                0x00003622                pinMode
  .text.digitalWrite
-                0x00003652       0x5e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
-                0x00003652                digitalWrite
+                0x0000369a       0x5e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+                0x0000369a                digitalWrite
  .text._ZN6StringD2Ev
-                0x000036b0        0xa C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000036b0                _ZN6StringD2Ev
-                0x000036b0                _ZN6StringD1Ev
+                0x000036f8        0xa C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x000036f8                _ZN6StringD2Ev
+                0x000036f8                _ZN6StringD1Ev
  .text._ZN6String10invalidateEv
-                0x000036ba       0x24 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000036ba                _ZN6String10invalidateEv
+                0x00003702       0x24 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00003702                _ZN6String10invalidateEv
  .text._ZN6String12changeBufferEj
-                0x000036de       0x34 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x000036de                _ZN6String12changeBufferEj
+                0x00003726       0x34 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00003726                _ZN6String12changeBufferEj
  .text._ZN6String7reserveEj
-                0x00003712       0x38 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x00003712                _ZN6String7reserveEj
+                0x0000375a       0x38 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x0000375a                _ZN6String7reserveEj
  .text._ZN6String4copyEPKcj
-                0x0000374a       0x42 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x0000374a                _ZN6String4copyEPKcj
+                0x00003792       0x42 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x00003792                _ZN6String4copyEPKcj
  .text._ZN6StringC2EPKc
-                0x0000378c       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
-                0x0000378c                _ZN6StringC2EPKc
-                0x0000378c                _ZN6StringC1EPKc
+                0x000037d4       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+                0x000037d4                _ZN6StringC2EPKc
+                0x000037d4                _ZN6StringC1EPKc
  .text._ZN7Serial_5writeEh
-                0x000037b6       0x2c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x000037b6                _ZN7Serial_5writeEh
+                0x000037fe       0x2c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x000037fe                _ZN7Serial_5writeEh
  .text._ZN7Serial_4peekEv
-                0x000037e2       0x22 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x000037e2                _ZN7Serial_4peekEv
+                0x0000382a       0x22 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x0000382a                _ZN7Serial_4peekEv
  .text._ZN7Serial_17availableForWriteEv
-                0x00003804        0xa C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x00003804                _ZN7Serial_17availableForWriteEv
+                0x0000384c        0xa C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x0000384c                _ZN7Serial_17availableForWriteEv
  .text._ZN7Serial_5flushEv
-                0x0000380e        0x6 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x0000380e                _ZN7Serial_5flushEv
+                0x00003856        0x6 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x00003856                _ZN7Serial_5flushEv
  .text._ZN7Serial_9availableEv
-                0x00003814       0x20 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x00003814                _ZN7Serial_9availableEv
+                0x0000385c       0x20 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x0000385c                _ZN7Serial_9availableEv
  .text._ZN7Serial_4readEv
-                0x00003834       0x1a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x00003834                _ZN7Serial_4readEv
+                0x0000387c       0x1a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x0000387c                _ZN7Serial_4readEv
  .text._ZN7Serial_5writeEPKhj
-                0x0000384e       0x2c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x0000384e                _ZN7Serial_5writeEPKhj
+                0x00003896       0x2c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x00003896                _ZN7Serial_5writeEPKhj
  .text._Z16isLUFAbootloaderv
-                0x0000387a       0x14 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x0000387a                _Z16isLUFAbootloaderv
+                0x000038c2       0x14 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x000038c2                _Z16isLUFAbootloaderv
  .text._Z16CDC_GetInterfacePh
-                0x0000388e       0x16 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x0000388e                _Z16CDC_GetInterfacePh
+                0x000038d6       0x16 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x000038d6                _Z16CDC_GetInterfacePh
  .text._Z9CDC_SetupR8USBSetup
-                0x000038a4      0x11c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
-                0x000038a4                _Z9CDC_SetupR8USBSetup
+                0x000038ec      0x11c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+                0x000038ec                _Z9CDC_SetupR8USBSetup
  .text.startup._GLOBAL__sub_I__cdcInterface
-                0x000039c0       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
- .text.__empty  0x000039ea        0x2 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
-                0x000039ea                yield
+                0x00003a08       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+ .text.__empty  0x00003a32        0x2 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+                0x00003a32                yield
  .text._ZN13PluggableUSB_12getInterfaceEPh
-                0x000039ec       0x52 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
-                0x000039ec                _ZN13PluggableUSB_12getInterfaceEPh
+                0x00003a34       0x52 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+                0x00003a34                _ZN13PluggableUSB_12getInterfaceEPh
  .text._ZN13PluggableUSB_13getDescriptorER8USBSetup
-                0x00003a3e       0x3e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
-                0x00003a3e                _ZN13PluggableUSB_13getDescriptorER8USBSetup
+                0x00003a86       0x3e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+                0x00003a86                _ZN13PluggableUSB_13getDescriptorER8USBSetup
  .text._ZN13PluggableUSB_12getShortNameEPc
-                0x00003a7c       0x3e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
-                0x00003a7c                _ZN13PluggableUSB_12getShortNameEPc
+                0x00003ac4       0x3e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+                0x00003ac4                _ZN13PluggableUSB_12getShortNameEPc
  .text._ZN13PluggableUSB_5setupER8USBSetup
-                0x00003aba       0x3c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
-                0x00003aba                _ZN13PluggableUSB_5setupER8USBSetup
+                0x00003b02       0x3c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+                0x00003b02                _ZN13PluggableUSB_5setupER8USBSetup
  .text._Z12PluggableUSBv
-                0x00003af6       0x28 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
-                0x00003af6                _Z12PluggableUSBv
+                0x00003b3e       0x28 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+                0x00003b3e                _Z12PluggableUSBv
  .text.avr-libc.fplib
-                0x00003b1e        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x00003b1e                __divsf3
+                0x00003b66        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00003b66                __divsf3
  .text.avr-libc.fplib
-                0x00003b26       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x00003b46                __divsf3x
-                0x00003b4c                __divsf3_pse
+                0x00003b6e       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x00003b8e                __divsf3x
+                0x00003b94                __divsf3_pse
  .text.avr-libc.fplib
-                0x00003c02       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x00003c02                __fixunssfsi
+                0x00003c4a       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x00003c4a                __fixunssfsi
  .text.avr-libc.fplib
-                0x00003c60        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(gesf2.o)
-                0x00003c60                __gesf2
-                0x00003c60                __gtsf2
+                0x00003ca8        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(gesf2.o)
+                0x00003ca8                __gesf2
+                0x00003ca8                __gtsf2
  .text.avr-libc.fplib
-                0x00003c6a        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(unordsf2.o)
-                0x00003c6a                __unordsf2
+                0x00003cb2        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(unordsf2.o)
+                0x00003cb2                __unordsf2
  .text.libgcc.div
-                0x00003c74       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
-                0x00003c74                _div
-                0x00003c74                __divmodhi4
+                0x00003cbc       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00003cbc                _div
+                0x00003cbc                __divmodhi4
  .text.libgcc.div
-                0x00003c9c       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00003c9c                __udivmodsi4
- .text.libgcc   0x00003ce0        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00003ce0                __tablejump2__
+                0x00003ce4       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00003ce4                __udivmodsi4
+ .text.libgcc   0x00003d28        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00003d28                __tablejump2__
  .text.libgcc.div
-                0x00003cec       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x00003cec                __udivmodhi4
+                0x00003d34       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x00003d34                __udivmodhi4
  .text.avr-libc
-                0x00003d14      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00003d14                malloc
-                0x00003e44                free
+                0x00003d5c      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x00003d5c                malloc
+                0x00003e8c                free
  .text.avr-libc
-                0x00003f56      0x18c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(realloc.o)
-                0x00003f56                realloc
+                0x00003f9e      0x18c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(realloc.o)
+                0x00003f9e                realloc
  .text.avr-libc
-                0x000040e2        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(abort.o)
-                0x000040e2                abort
+                0x0000412a        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(abort.o)
+                0x0000412a                abort
  .text.avr-libc
-                0x000040ec       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x000040ec                memcpy
+                0x00004134       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x00004134                memcpy
  .text.avr-libc
-                0x000040fe        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
-                0x000040fe                strcpy
+                0x00004146        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x00004146                strcpy
  .text.libgcc.prologue
-                0x0000410c       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x0000410c                __prologue_saves__
+                0x00004154       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00004154                __prologue_saves__
  .text.libgcc.prologue
-                0x00004144       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00004144                __epilogue_restores__
-                0x0000417a                . = ALIGN (0x2)
+                0x0000418c       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x0000418c                __epilogue_restores__
+                0x000041c2                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000417a        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x0000417a                _exit
-                0x0000417a                exit
+ .fini9         0x000041c2        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000041c2                _exit
+                0x000041c2                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
  *(.fini7)
  *(.fini7)
  *(.fini6)
- .fini6         0x0000417a       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_dtors.o)
-                0x0000417a                __do_global_dtors
+ .fini6         0x000041c2       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_dtors.o)
+                0x000041c2                __do_global_dtors
  *(.fini6)
  *(.fini5)
  *(.fini5)
@@ -1933,11 +1933,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00004190        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000041d8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00004194                _etext = .
+                0x000041dc                _etext = .
 
-.data           0x00800100      0x19a load address 0x00004194
+.data           0x00800100      0x19a load address 0x000041dc
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
@@ -2140,8 +2140,8 @@ END GROUP
                 0x00800503                __brkval
                 0x00800505                __flp
                 0x00800507                PROVIDE (__bss_end, .)
-                0x00004194                __data_load_start = LOADADDR (.data)
-                0x0000432e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000041dc                __data_load_start = LOADADDR (.data)
+                0x00004376                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800507        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -2270,26 +2270,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x18630
+.debug_info     0x00000000    0x186b1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x9f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
  .debug_info    0x000009f4      0x23b Romeo_keys.o
- .debug_info    0x00000c2f     0x46cb Sketch.o
- .debug_info    0x000052fa      0x843 src/libraries/DHTlib/dht.o
- .debug_info    0x00005b3d     0x34d5 src/libraries/hd44780/hd44780.o
- .debug_info    0x00009012      0x632 src/libraries/Wire/src/utility/twi.o
- .debug_info    0x00009644     0x27b0 src/libraries/Wire/src/Wire.o
- .debug_info    0x0000bdf4       0x76 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
- .debug_info    0x0000be6a      0x35a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_info    0x0000c1c4     0x292d C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_info    0x0000eaf1     0x1a3a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
- .debug_info    0x0001052b      0x2f9 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_info    0x00010824      0x2d7 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
- .debug_info    0x00010afb      0x633 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_info    0x0001112e     0x4338 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_info    0x00015466     0x29ed C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
- .debug_info    0x00017e53       0x3e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
- .debug_info    0x00017e91      0x79f C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+ .debug_info    0x00000c2f     0x474c Sketch.o
+ .debug_info    0x0000537b      0x843 src/libraries/DHTlib/dht.o
+ .debug_info    0x00005bbe     0x34d5 src/libraries/hd44780/hd44780.o
+ .debug_info    0x00009093      0x632 src/libraries/Wire/src/utility/twi.o
+ .debug_info    0x000096c5     0x27b0 src/libraries/Wire/src/Wire.o
+ .debug_info    0x0000be75       0x76 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
+ .debug_info    0x0000beeb      0x35a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_info    0x0000c245     0x292d C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_info    0x0000eb72     0x1a3a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+ .debug_info    0x000105ac      0x2f9 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_info    0x000108a5      0x2d7 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
+ .debug_info    0x00010b7c      0x633 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_info    0x000111af     0x4338 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_info    0x000154e7     0x29ed C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+ .debug_info    0x00017ed4       0x3e C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_info    0x00017f12      0x79f C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
 
 .debug_abbrev   0x00000000     0x411b
  *(.debug_abbrev)
@@ -2312,26 +2312,26 @@ END GROUP
  .debug_abbrev  0x00003e2c       0x2a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
  .debug_abbrev  0x00003e56      0x2c5 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
 
-.debug_line     0x00000000     0x6354
+.debug_line     0x00000000     0x6372
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x199 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
  .debug_line    0x00000199      0x1e3 Romeo_keys.o
- .debug_line    0x0000037c     0x1006 Sketch.o
- .debug_line    0x00001382      0x3af src/libraries/DHTlib/dht.o
- .debug_line    0x00001731      0x9d6 src/libraries/hd44780/hd44780.o
- .debug_line    0x00002107      0x519 src/libraries/Wire/src/utility/twi.o
- .debug_line    0x00002620      0x608 src/libraries/Wire/src/Wire.o
- .debug_line    0x00002c28       0xa9 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
- .debug_line    0x00002cd1      0x177 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
- .debug_line    0x00002e48      0x685 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_line    0x000034cd      0x9e7 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
- .debug_line    0x00003eb4      0x2bd C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_line    0x00004171      0x27a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
- .debug_line    0x000043eb      0x26a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_line    0x00004655     0x1355 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_line    0x000059aa      0x68b C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
- .debug_line    0x00006035       0x41 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
- .debug_line    0x00006076      0x2de C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+ .debug_line    0x0000037c     0x1024 Sketch.o
+ .debug_line    0x000013a0      0x3af src/libraries/DHTlib/dht.o
+ .debug_line    0x0000174f      0x9d6 src/libraries/hd44780/hd44780.o
+ .debug_line    0x00002125      0x519 src/libraries/Wire/src/utility/twi.o
+ .debug_line    0x0000263e      0x608 src/libraries/Wire/src/Wire.o
+ .debug_line    0x00002c46       0xa9 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(abi.o)
+ .debug_line    0x00002cef      0x177 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(main.o)
+ .debug_line    0x00002e66      0x685 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_line    0x000034eb      0x9e7 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+ .debug_line    0x00003ed2      0x2bd C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_line    0x0000418f      0x27a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
+ .debug_line    0x00004409      0x26a C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_line    0x00004673     0x1355 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_line    0x000059c8      0x68b C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+ .debug_line    0x00006053       0x41 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(hooks.o)
+ .debug_line    0x00006094      0x2de C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
 
 .debug_frame    0x00000000     0x23d0
  *(.debug_frame)
@@ -2391,22 +2391,22 @@ END GROUP
  .debug_str     0x00004ebc       0x4c C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
                                 0x5ef (size before relaxing)
 
-.debug_loc      0x00000000     0xca44
+.debug_loc      0x00000000     0xca5e
  *(.debug_loc)
  .debug_loc     0x00000000       0xe3 Romeo_keys.o
- .debug_loc     0x000000e3     0x14e9 Sketch.o
- .debug_loc     0x000015cc      0x7df src/libraries/DHTlib/dht.o
- .debug_loc     0x00001dab     0x1510 src/libraries/hd44780/hd44780.o
- .debug_loc     0x000032bb      0x3e6 src/libraries/Wire/src/utility/twi.o
- .debug_loc     0x000036a1      0xbe6 src/libraries/Wire/src/Wire.o
- .debug_loc     0x00004287     0x1c87 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
- .debug_loc     0x00005f0e     0x1277 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
- .debug_loc     0x00007185      0x28d C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
- .debug_loc     0x00007412      0x1cb C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
- .debug_loc     0x000075dd      0x665 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_loc     0x00007c42     0x422d C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
- .debug_loc     0x0000be6f      0x790 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
- .debug_loc     0x0000c5ff      0x445 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
+ .debug_loc     0x000000e3     0x1503 Sketch.o
+ .debug_loc     0x000015e6      0x7df src/libraries/DHTlib/dht.o
+ .debug_loc     0x00001dc5     0x1510 src/libraries/hd44780/hd44780.o
+ .debug_loc     0x000032d5      0x3e6 src/libraries/Wire/src/utility/twi.o
+ .debug_loc     0x000036bb      0xbe6 src/libraries/Wire/src/Wire.o
+ .debug_loc     0x000042a1     0x1c87 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(Print.o)
+ .debug_loc     0x00005f28     0x1277 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(USBCore.o)
+ .debug_loc     0x0000719f      0x28d C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring.o)
+ .debug_loc     0x0000742c      0x1cb C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_analog.o)
+ .debug_loc     0x000075f7      0x665 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_loc     0x00007c5c     0x422d C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(WString.o)
+ .debug_loc     0x0000be89      0x790 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(CDC.o)
+ .debug_loc     0x0000c619      0x445 C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\99_PRO~1\99_PRO~1\ARDUIN~1\Debug\libArduinoCore.a(PluggableUSB.o)
 
 .debug_macinfo
  *(.debug_macinfo)

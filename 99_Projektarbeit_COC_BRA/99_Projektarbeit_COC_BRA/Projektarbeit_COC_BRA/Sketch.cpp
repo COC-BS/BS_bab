@@ -50,6 +50,7 @@ public:
  };
  
  class Datum {
+public:
 	int YYYY_;
 	int MM_;
 	int DD_;
@@ -65,18 +66,18 @@ public:
 };
 
 //Ausgangsuhrzeit
-class Zeit zeitGMT(21,31,0);
+class Zeit zeitGMT(4,50,0);
 //Zeit für die verschiedenen Zeitzonen
 class Zeit zeitTimeZone(12,0,0);
 //Lokalzeit
-class Zeit zeitLocal(22,31,0);
+class Zeit zeitLocal(5,50,0);
 
 //Ausgangsdatum
-class Datum datumGMT(10,12,2019);
+class Datum datumGMT(14,12,2019);
 //Datum für die verschiedenen Zeitzonen
 class Datum datumTimeZone(1,9,2000);
 //Lokales Datum
-class Datum datumLocal(15,10,1995);
+class Datum datumLocal(14,12,2019);
 
 
 
@@ -273,8 +274,6 @@ int homeScreen(int key)
 		int readData = DHT.read22(tempSensor);
 		temp = DHT.temperature;
 		hum = DHT.humidity;
-		//temp=analogRead(tempSensor);
-		//temp=(temp*500)/1023;
 		printHumidityTemp();
 		readSensor = millis() + 5000;
 	}
@@ -303,11 +302,28 @@ void calculateTime() {
 	zeitTimeZone.hh_= zeitGMT.hh_ + CITIES[tz].timediff;
 	if (zeitTimeZone.hh_ > 23)
 	{
-		zeitTimeZone.hh_ -= 24; 
+		zeitTimeZone.hh_ -= 24;
+		//datumTimeZone.Tick();
 	}
 	if (zeitTimeZone.hh_ < 0)
 	{
 		zeitTimeZone.hh_ = 24 - zeitTimeZone.hh_;
+		/*
+		datumTimeZone.DD_ -= 1;
+		if (datumTimeZone.DD_ = 0)
+		{
+			datumTimeZone.MM_ -= 1;
+			if (datumTimeZone.MM_ != 0)
+			{
+				datumTimeZone.DD_ = datumTimeZone.DaysOfMonth();	
+			}
+			else
+			{
+				datumTimeZone.YYYY_ -= 1;
+				datumTimeZone.DD_ = 31;
+			}
+		}
+		*/
 	}
 	
 }
@@ -401,8 +417,16 @@ int setTimeZone(int key)
 int dateAlarmScreen(int key)
 {
 	lcd.setCursor(0,0);
-	printddmmyyyy(datumLocal);
-	
+	if (timeZoneChoosen)
+	{
+		printddmmyyyy(datumTimeZone);
+		lcd.setCursor(13,0);
+		lcd.print(CITIES[tz].initials);
+	}
+	else
+	{
+		printddmmyyyy(datumLocal);
+	}
 	return key;
 }
 
@@ -475,6 +499,7 @@ void setup()
 	lcd.clear();
 	
 	zeitTimeZone = zeitGMT;
+	datumTimeZone = datumGMT;
 	
 	//Button uns Sensor Pin als input definiert
 	pinMode(btnPin, INPUT);

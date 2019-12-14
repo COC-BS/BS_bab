@@ -576,7 +576,7 @@ struct FSM_TAG
 
 const struct FSM_TAG watchmenu[] =
 {
-	//      ^   <    v    >  ok
+	//      ^   <    v    >  ok		active		hit 'right'   hit 'ok'
 	/*0*/ {1,  -1,   3,   2,  0,	homeScreen,		NULL,	changeAMPM},
 	/*1*/ {-1, -1,   0,   2,  1,	dateScreen,		NULL,	changeAMPM},		
 	/*2*/ {-1,  0,  -1,  -1,  0,	setTimeZone,	NULL,	chooseTimeZone},

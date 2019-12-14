@@ -65,11 +65,11 @@ public:
 };
 
 //Ausgangsuhrzeit
-class Zeit zeitGMT(21,31,0);
+class Zeit zeitGMT(23,31,0);
 //Zeit für die verschiedenen Zeitzonen
 class Zeit zeitTimeZone(12,0,0);
 //Lokalzeit
-class Zeit zeitLocal(22,31,0);
+class Zeit zeitLocal(23,31,0);
 
 //Ausgangsdatum
 class Datum datumGMT(10,12,2019);
@@ -307,7 +307,7 @@ void calculateTime() {
 	}
 	if (zeitTimeZone.hh_ < 0)
 	{
-		zeitTimeZone.hh_ = 24 - zeitTimeZone.hh_;
+		zeitTimeZone.hh_ = 24 + zeitTimeZone.hh_;
 	}
 	
 }

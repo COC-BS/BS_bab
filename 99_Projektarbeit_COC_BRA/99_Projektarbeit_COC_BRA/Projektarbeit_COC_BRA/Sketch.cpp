@@ -545,6 +545,7 @@ void loop()
 		newmenu = 0;
 		break;
 	}
+	if(newmenu >= 0) menu = newmenu;
 
 	//} //else Klammer
 }

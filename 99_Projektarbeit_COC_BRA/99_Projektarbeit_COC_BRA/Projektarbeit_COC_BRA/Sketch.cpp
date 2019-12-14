@@ -66,11 +66,16 @@ public:
 };
 
 //Ausgangsuhrzeit
-class Zeit zeitGMT(4,50,0);
+class Zeit zeitGMT(17,59,45);
 //Zeit für die verschiedenen Zeitzonen
 class Zeit zeitTimeZone(12,0,0);
 //Lokalzeit
-class Zeit zeitLocal(5,50,0);
+class Zeit zeitLocal(17,59,45);
+
+class Zeit weckzeit(18,0,0);
+boolean weckerStatus = false;
+int buzzer = 0;
+
 
 //Ausgangsdatum
 class Datum datumGMT(14,12,2019);
@@ -176,6 +181,67 @@ void Watch()
 #define OK_KEY 5
 #define BK_KEY 6
 #define X_KEY 10
+
+/**
+ * @brief modifies the struct zeit 
+ *
+ * on each call, exactly one user input is processed 
+ *
+ * @param[in] key: int, user input
+ *
+ * input UP, DOWN, RIGHT, LEFT_KEY is processed and returned as NO_KEY 
+ *
+ * @return int processed user input,  all except the four above mentioned is returned
+ */
+int Zeit::Change(int key)
+{
+	if((set_ < 1) || (set_ > 2)) set_ = 1;
+	switch(key){
+	case RIGHT_KEY:
+		set_ = 2;
+		key = X_KEY;
+		break;
+	case LEFT_KEY:
+		set_ = 1;
+		key = X_KEY;
+		break;
+	}
+	
+	if(set_ == 1){
+		//! change hours
+		switch(key){
+		case UP_KEY:
+			hh_=(hh_+1)%24;
+			ss_ = 0;
+			key=X_KEY;
+			break;
+		case DOWN_KEY:
+			if(hh_==0) hh_=23;
+			else --hh_;
+			ss_ = 0;
+			key=X_KEY;
+			break;
+		}
+	}
+	else if(set_ == 2){
+		//! change minutes
+		switch(key){
+		case UP_KEY:
+			mm_=(mm_+1)%60;
+			ss_ = 0;
+			key=X_KEY;
+			break;
+		case DOWN_KEY:
+			if(mm_==0) mm_=59;
+			else --mm_;
+			ss_ = 0;
+			key=X_KEY;
+			break;
+		}
+	}
+	return key;
+}
+
 /**
  * @brief print the given time in a "hh:mm:ss"-frame on a line of an lcd
  * 
@@ -412,20 +478,65 @@ int setTimeZone(int key)
 }
 
 
-int dateAlarmScreen(int key)
+int alarmScreen(int key)
+{
+	lcd.setCursor(0,0);
+	lcd.print("Wecker: ");
+	if (weckerStatus)
+	{
+		lcd.print("Ein");
+		
+	}
+	else lcd.print("Aus");
+	lcd.setCursor(0,1);
+	printhhmmss(weckzeit);
+	return key;
+}
+
+int changeAlarm (int key)
+{
+	lcd.setCursor(0,0);
+	lcd.print("Weckzeit?");
+	key = weckzeit.Change(key);
+	lcd.setCursor(0,1);
+	printhhmmss(weckzeit);
+
+		return key;
+	
+	return key;
+}
+
+int setAlarm (void)
+{
+	weckerStatus = !weckerStatus;
+	return 0;
+}
+
+int dateScreen(int key)
 {
 	lcd.setCursor(0,0);
 	if (timeZoneChoosen)
 	{
-		printddmmyyyy(datumTimeZone);
+		printhhmmss(zeitTimeZone);
 		lcd.setCursor(13,0);
 		lcd.print(CITIES[tz].initials);
+		lcd.setCursor(0,1);
+		printddmmyyyy(datumTimeZone);
 	}
 	else
 	{
+		printhhmmss(zeitLocal);
+		lcd.setCursor(0,1);
 		printddmmyyyy(datumLocal);
 	}
 	return key;
+}
+
+int gpsScreen(int key)
+{
+	lcd.setCursor(0,0);
+	lcd.print("GPS Daten");
+	return key;	
 }
 
 
@@ -466,9 +577,13 @@ struct FSM_TAG
 const struct FSM_TAG watchmenu[] =
 {
 	//      ^   <    v    >  ok
-	/*0*/ {-1, -1,   2,   1,  0,	homeScreen,			NULL,		changeAMPM},
-	/*1*/ {-1,  0,  -1,  -1,  0,	setTimeZone,		NULL,	chooseTimeZone},
-	/*2*/ {0,  -1,  -1,  -1, -1,	dateAlarmScreen,	NULL,	NULL},		
+	/*0*/ {1,  -1,   3,   2,  0,	homeScreen,		NULL,	changeAMPM},
+	/*1*/ {-1, -1,   0,   2,  1,	dateScreen,		NULL,	changeAMPM},		
+	/*2*/ {-1,  0,  -1,  -1,  0,	setTimeZone,	NULL,	chooseTimeZone},
+	/*3*/ {0,  -1,   5,   4, -1,	alarmScreen,	NULL,	setAlarm},
+	/*4*/ {4,   3,   4,  -1,  3,	changeAlarm,	NULL,	NULL},	
+	/*5*/ {3,   3,   0,  -1,  3,	gpsScreen,		NULL,	NULL},		
+		
 		
 
 };
@@ -477,6 +592,7 @@ static int menu = 0, newmenu = 0;
 static int input = 0; /// user input
 static char strtemp[20]; /// temporary variable for access to PROGMEM strings 
 #define ROM(a) strcpy_P(strtemp, a) /// macro hiding the strcpy_P to the temp variable 'strtemp'
+
 /**
  * \brief arduino setup
  * 
@@ -523,9 +639,17 @@ void loop()
 	{
 	*/
 	Watch();
+	if(weckerStatus&&(zeitLocal.GetHours()==weckzeit.GetHours())&&(zeitLocal.GetMinutes()==weckzeit.GetMinutes())&&(zeitLocal.GetSeconds()==weckzeit.GetSeconds())) buzzer = 1;
 	input = getkey();
-	if (watchmenu[menu].active) 
-		input = watchmenu[menu].active(input);
+		if(buzzer)
+		{
+			if(input){
+				lcd.noBacklight();
+				buzzer = 0;
+			}
+			else if(zeitLocal.GetSeconds()%2) lcd.backlight(); else lcd.noBacklight();
+		}
+	if (watchmenu[menu].active) input = watchmenu[menu].active(input);
 		//! cyclic call to active function as long as menu n is active
 	switch(input) {
 		default:

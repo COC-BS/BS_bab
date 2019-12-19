@@ -9,6 +9,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "99_Projektar
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Clock_Romeo_flash", "..\..\03_Clock_Romeo_flash\HelloWorld_AS7\Romeo_Hello_World\Clock_Romeo_flash.cppproj", "{334C5B83-45DB-4503-8FE9-85DA4F7685F7}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Motorensteuerung_Test", "..\00_Testprojekt_Motorensteuerung\01_Hello_World\hello_world\Motorensteuerung_Test.cppproj", "{C8F556A6-D357-44A5-8C5A-53B395EE2ABE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -27,6 +29,10 @@ Global
 		{334C5B83-45DB-4503-8FE9-85DA4F7685F7}.Debug|AVR.Build.0 = Debug|AVR
 		{334C5B83-45DB-4503-8FE9-85DA4F7685F7}.Release|AVR.ActiveCfg = Release|AVR
 		{334C5B83-45DB-4503-8FE9-85DA4F7685F7}.Release|AVR.Build.0 = Release|AVR
+		{C8F556A6-D357-44A5-8C5A-53B395EE2ABE}.Debug|AVR.ActiveCfg = Debug|AVR
+		{C8F556A6-D357-44A5-8C5A-53B395EE2ABE}.Debug|AVR.Build.0 = Debug|AVR
+		{C8F556A6-D357-44A5-8C5A-53B395EE2ABE}.Release|AVR.ActiveCfg = Release|AVR
+		{C8F556A6-D357-44A5-8C5A-53B395EE2ABE}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

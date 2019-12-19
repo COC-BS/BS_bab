@@ -1,14 +1,15 @@
 ﻿#include <wire.h>
 #include <hd44780.h>
-#include <hd44780ioClass/hd44780_I2Cexp.h> // include i/o class header
+#include <hd44780ioClass/hd44780_I2Cexp.h>
 
-#include <dht.h> //Library to read the temp and humidity sensor
-#include "Romeo_keys.h"
+#include <dht.h> //Library für den DHT22-Sensor
+#include "Romeo_keys.h" //Library um die 5 Tasten auf dem Romeo auszuwerten
+#include <PID_v1.h>
 
 
 hd44780_I2Cexp lcd;
 
-//Strukt um Städte und deren Zweitverschiebung zu GMT (London)
+//Strukt um Städte und deren Zweitverschiebung zu GMT (London) abzuspeichern
 struct CITY_TIME_DIF {
 	String name;
 	int timediff;
@@ -21,18 +22,54 @@ const struct CITY_TIME_DIF CITIES [] {
 	{ "Bruessel",  1, "BRU"},{"Washington",  -5, "WAS"},{"Singapur", 8, "SIN"},{"Sydney", 11, "SYD"}
 	};
 
-int tz = 0;
-long readSensor = 0;
+int tz = 0; //Variable um durch das "CITIES"-Struct zu wechseln
+
+//Sensorobjekt und Variabeln zur Sensorauswertung
+dht DHT;
+long readSensor = 0; 
 float temp;
 float hum;
-boolean timeZoneChoosen = false; //Bool to set the local time or a time of a city
-boolean ampm = false; //Bool to change between 12h clock and 24h
+
+boolean timeZoneChoosen = false; //Boolean um die Lokalzeit oder die Zeit einer Stadt anzuzeigen
+boolean ampm = false; //Boolean um zwischen 24h und am/pm Layout zu wechseln
 
 
 //Pin deklaration für den Button und den Temperatur Sensor
-const int btnPin = 7;
-dht DHT; //Create a DHT object (Temp&Humidity Sensor)
+const int btnPin = 8;
 const int tempSensor=A4;
+
+//Pins und Variablen für den DC-Motor und seine PID-Regelung
+const byte encoder0pinB = 7;
+int En_Motor = 5; //Enable Control Motor 1
+int Dir_Motor = 4; //Direction control Motor 1
+byte encoder0PinALast;
+double duration,abs_duration;//the number of the pulses
+boolean result;
+boolean motorOn = false;
+
+double val_output;//Power supplied to the motor PWM value.
+double Setpoint;
+double Kp=3, Ki=5, Kd=0;
+PID myPID(&abs_duration, &val_output, &Setpoint, Kp, Ki, Kd, DIRECT);
+
+// Counters for milliseconds during interval
+long previousMillis = 0;
+long currentMillis = 0;
+
+// One-second interval for measurements
+int interval = 1000;
+
+//GPS-Variabeln
+#define NMEA_TIME "GPRMC,"
+#define TIMEZONE 1
+#define BUFFERSIZE 64
+char buffer[BUFFERSIZE];							// buffer for data from NMEA device
+uint8_t count=0;									// counter for buffer array
+char* ptr = NULL;
+uint8_t frame = 0;
+
+long t;
+char s[12];
 
 class Zeit {
 public:	
@@ -75,7 +112,6 @@ class Zeit zeitLocal(17,59,45);
 class Zeit weckzeit(18,0,0);
 boolean weckerStatus = false;
 int buzzer = 0;
-
 
 //Ausgangsdatum
 class Datum datumGMT(14,12,2019);
@@ -363,6 +399,7 @@ int homeScreen(int key)
  * 
  * Stellt sicher, dass die Zeiten richtig sind. 
  * Zwischen 0 und kleiner als 24.
+ * Ändert das Datum bei Zeitübertrag.
  */
 void calculateTime() {
 	zeitTimeZone.hh_= zeitGMT.hh_ + CITIES[tz].timediff;
@@ -477,7 +514,15 @@ int setTimeZone(int key)
 	return input;
 }
 
-
+/**
+ * @brief Zeigt den Weckerstatus und die Weckzeit
+ *
+ * Zeigt den Weckerstatus und die Weckzeit auf dem LCD	
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int alarmScreen(int key)
 {
 	lcd.setCursor(0,0);
@@ -493,6 +538,16 @@ int alarmScreen(int key)
 	return key;
 }
 
+/**
+ * @brief Anzeige um die Weckzeit zu ändern
+ *
+ * Zeigt die Weckzeit auf dem LCD
+ * Durch die Taster auf dem Romeo kann die Weckzeit geändert werden	
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int changeAlarm (int key)
 {
 	lcd.setCursor(0,0);
@@ -506,12 +561,27 @@ int changeAlarm (int key)
 	return key;
 }
 
+/**
+ * @brief Schaltet den Wecker ein oder aus
+ *
+ * @return 0
+ */
 int setAlarm (void)
 {
 	weckerStatus = !weckerStatus;
 	return 0;
 }
 
+/**
+ * @brief Zeigt Zeit und Datum auf dem LCD
+ *
+ * Zeigt je nach Einstellungen die Lokalzeit und das Lokaldatum
+ * oder die Zeit, den Kürzel und das Datum einer Stadt an
+ 
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int dateScreen(int key)
 {
 	lcd.setCursor(0,0);
@@ -532,6 +602,15 @@ int dateScreen(int key)
 	return key;
 }
 
+/**
+ * @brief Zeigt die GPS-DAten an
+ *
+ *
+ *
+ * @param[in] key : int, user input
+ *
+ * @return key
+ */
 int gpsScreen(int key)
 {
 	lcd.setCursor(0,0);
@@ -545,11 +624,65 @@ int gpsScreen(int key)
  *
  */
 void callibratePointer() 
-{
+{	
+	analogWrite(En_Motor,0);
 	lcd.clear();
 	lcd.print("Zeiger kalibrieren");
 	delay(2000);
 	lcd.clear();
+}
+
+void advance()//Motor Forward
+{
+	digitalWrite(Dir_Motor,LOW);
+	analogWrite(En_Motor,val_output);
+}
+
+/**
+ * @brief ISR um den Interrupt durch den Encoder zu bearbeiten
+ *
+ */
+void wheelSpeed()
+{
+	duration++;
+}
+
+void readGPS()
+{
+	while(Serial1.available()) {						// as long as data is available on NMEA device
+		unsigned char c =  buffer[count] = Serial1.read();	// write data into array
+		Serial.write(c);								// and write data to PC (Serial)
+		if(count < BUFFERSIZE-1) count++;				// to avoid buffer overflow
+		if(c == '$') {
+			ptr = buffer;
+			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;			// fill with 0
+			count = 0;								// start of frame found, reset buffer
+			buffer[count++] = c;						// store start of frame
+		}
+		if(c == '*') {									// end of frame found, start conversion
+			frame = 1;
+			break;
+		}
+	}
+	if(frame) {											// full frame in buffer, so parse and decode
+		frame = 0;
+		ptr = strstr(buffer, NMEA_TIME);				// scan for GPRMC keyword
+		if(ptr != NULL) {								// GPRMC keyword found, read time
+			ptr += strlen(NMEA_TIME);
+			t = atol(ptr);								// parse time value into hour, minute, second
+			zeitLocal.ss_ = t % 100;
+			zeitLocal.mm_ = (t / 100) % 100;
+			zeitLocal.hh_ = ((t / 10000) + TIMEZONE) % 24;	
+		
+								
+			ptr = buffer;
+			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;			// fill with 0
+			count = 0;							// clear buffer and start new
+		}
+	}
+	if (Serial.available()){							// if data is available from PC
+		Serial1.write(Serial.read());					// write it to the NMEA device
+	}
 }
 
 
@@ -578,7 +711,7 @@ const struct FSM_TAG watchmenu[] =
 {
 	//      ^   <    v    >  ok		active		hit 'right'   hit 'ok'
 	/*0*/ {1,  -1,   3,   2,  0,	homeScreen,		NULL,	changeAMPM},
-	/*1*/ {-1, -1,   0,   2,  1,	dateScreen,		NULL,	changeAMPM},		
+	/*1*/ {5,  -1,   0,   2,  1,	dateScreen,		NULL,	changeAMPM},		
 	/*2*/ {-1,  0,  -1,  -1,  0,	setTimeZone,	NULL,	chooseTimeZone},
 	/*3*/ {0,  -1,   5,   4, -1,	alarmScreen,	NULL,	setAlarm},
 	/*4*/ {4,   3,   4,  -1,  3,	changeAlarm,	NULL,	NULL},	
@@ -601,6 +734,8 @@ static char strtemp[20]; /// temporary variable for access to PROGMEM strings
  */
 void setup()
 {
+	Serial1.begin(9600);
+	Serial.begin(9600);
 	//LCD konfigurieren
 	lcd.begin(16, 2);
 	lcd.noBacklight();
@@ -615,10 +750,20 @@ void setup()
 	zeitTimeZone = zeitGMT;
 	datumTimeZone = datumGMT;
 	
-	//Button uns Sensor Pin als input definiert
+	//Pin definitionen
 	pinMode(btnPin, INPUT);
 	pinMode(tempSensor,INPUT);
+	pinMode(Dir_Motor, OUTPUT);
+	pinMode(En_Motor, OUTPUT);
+	pinMode(encoder0pinB,INPUT);
 	
+	//PID-Regler
+	Setpoint = 0; //Setpint 15 works
+	myPID.SetMode(AUTOMATIC);//PID is set to automatic mode
+	myPID.SetSampleTime(100);//Set PID sampling frequency is 100ms
+	attachInterrupt(digitalPinToInterrupt(7), wheelSpeed, CHANGE); //Pin 7 -> Interrupt 4
+	
+	previousMillis = millis();
 }
 
 /**
@@ -629,15 +774,33 @@ void setup()
  */
 void loop()
 {
+	readGPS();
+	//Zeit GMT wird nicht gesetzt!!!!!! FEHLER
+	zeitGMT = zeitLocal;
+	zeitGMT.hh_ -= 1;
+		
 	//Button-Pin auslesen
-	/*
 	if (digitalRead(btnPin) == HIGH)
 	{
 		callibratePointer();
 	}
 	else
 	{
-	*/
+	//PID-Regelung
+	advance(); //Motor forward
+	currentMillis = millis();
+	if (currentMillis - previousMillis > interval)
+	{
+		previousMillis = currentMillis;
+		
+		abs_duration=duration * 60 / 1920;
+			
+		result=myPID.Compute();//PID conversion is complete and returns 1
+		if(result)
+		{
+			duration = 0; //Count clear, wait for the next count
+		}
+	}
 	Watch();
 	if(weckerStatus&&(zeitLocal.GetHours()==weckzeit.GetHours())&&(zeitLocal.GetMinutes()==weckzeit.GetMinutes())&&(zeitLocal.GetSeconds()==weckzeit.GetSeconds())) buzzer = 1;
 	input = getkey();
@@ -694,7 +857,7 @@ void loop()
 	}
 	if(newmenu >= 0) menu = newmenu;
 
-	//} //else Klammer
+	} //else Klammer
 }
 
 

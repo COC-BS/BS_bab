@@ -62,236 +62,259 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGccCpp>
-  <avrgcc.common.Device>-mmcu=atmega32u4 -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32u4"</avrgcc.common.Device>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=108010</Value>
-      <Value>ARDUINO_AVR_LEONARDO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-      <Value>USB_VID=0x2341</Value>
-      <Value>USB_PID=0x8036</Value>
-      <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
-      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
-      <Value>..\include\libraries\Wire\src</Value>
-      <Value>..\include\libraries\Wire\src\utility</Value>
-      <Value>..\include\libraries\LiquidCrystal\src</Value>
-      <Value>..\include\libraries\hd44780</Value>
-      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
-      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>..\include\libraries\DHTlib</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
-  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=108010</Value>
-      <Value>ARDUINO_AVR_LEONARDO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-      <Value>USB_VID=0x2341</Value>
-      <Value>USB_PID=0x8036</Value>
-      <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
-      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
-    </ListValues>
-  </avrgcccpp.compiler.symbols.DefSymbols>
-  <avrgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
-      <Value>..\include\libraries\Wire\src</Value>
-      <Value>..\include\libraries\Wire\src\utility</Value>
-      <Value>..\include\libraries\LiquidCrystal\src</Value>
-      <Value>..\include\libraries\hd44780</Value>
-      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
-      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>..\include\libraries\DHTlib</Value>
-    </ListValues>
-  </avrgcccpp.compiler.directories.IncludePaths>
-  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
-  <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
-  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
-  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
-  <avrgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcccpp.linker.libraries.Libraries>
-  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
-  <avrgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
-    </ListValues>
-  </avrgcccpp.assembler.general.IncludePaths>
-  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
-</AvrGccCpp>
+        <avrgcc.common.Device>-mmcu=atmega32u4 -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32u4"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=108010</Value>
+            <Value>ARDUINO_AVR_LEONARDO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+            <Value>USB_VID=0x2341</Value>
+            <Value>USB_PID=0x8036</Value>
+            <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
+            <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+            <Value>..\include\libraries\Wire\src</Value>
+            <Value>..\include\libraries\Wire\src\utility</Value>
+            <Value>..\include\libraries\LiquidCrystal\src</Value>
+            <Value>..\include\libraries\hd44780</Value>
+            <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+            <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>..\include\libraries\DHTlib</Value>
+            <Value>..\include\libraries\Arduino-PID-Library-master</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=108010</Value>
+            <Value>ARDUINO_AVR_LEONARDO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+            <Value>USB_VID=0x2341</Value>
+            <Value>USB_PID=0x8036</Value>
+            <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
+            <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+            <Value>..\include\libraries\Wire\src</Value>
+            <Value>..\include\libraries\Wire\src\utility</Value>
+            <Value>..\include\libraries\LiquidCrystal\src</Value>
+            <Value>..\include\libraries\hd44780</Value>
+            <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+            <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>..\include\libraries\DHTlib</Value>
+            <Value>..\include\libraries\Arduino-PID-Library-master</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>C:\Users\cyril\Documents\Atmel Studio\7.0\ebs_Projektarbeit_bewertet\99_Projektarbeit_COC_BRA\99_Projektarbeit_COC_BRA\Projektarbeit_COC_BRA\include\libraries\Arduino-PID-Library-master</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.LibrarySearchPaths>
+        <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+        <avrgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
+          </ListValues>
+        </avrgcccpp.assembler.general.IncludePaths>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGccCpp>
-  <avrgcc.common.Device>-mmcu=atmega32u4 -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32u4"</avrgcc.common.Device>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=108010</Value>
-      <Value>ARDUINO_AVR_LEONARDO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-      <Value>USB_VID=0x2341</Value>
-      <Value>USB_PID=0x8036</Value>
-      <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
-      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
-      <Value>..\include\libraries\Wire\src</Value>
-      <Value>..\include\libraries\Wire\src\utility</Value>
-      <Value>..\include\libraries\LiquidCrystal\src</Value>
-      <Value>..\include\libraries\hd44780</Value>
-      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
-      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>..\include\libraries\DHTlib</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
-  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
-  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>F_CPU=16000000L</Value>
-      <Value>ARDUINO=108010</Value>
-      <Value>ARDUINO_AVR_LEONARDO</Value>
-      <Value>ARDUINO_ARCH_AVR</Value>
-      <Value>USB_VID=0x2341</Value>
-      <Value>USB_PID=0x8036</Value>
-      <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
-      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
-    </ListValues>
-  </avrgcccpp.compiler.symbols.DefSymbols>
-  <avrgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
-      <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
-      <Value>..\include\libraries\Wire\src</Value>
-      <Value>..\include\libraries\Wire\src\utility</Value>
-      <Value>..\include\libraries\LiquidCrystal\src</Value>
-      <Value>..\include\libraries\hd44780</Value>
-      <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
-      <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
-      <Value>..\include\libraries\DHTlib</Value>
-    </ListValues>
-  </avrgcccpp.compiler.directories.IncludePaths>
-  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
-  <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
-  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
-  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
-  <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
-  <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
-  <avrgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcccpp.linker.libraries.Libraries>
-  <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
-  <avrgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
-    </ListValues>
-  </avrgcccpp.assembler.general.IncludePaths>
-  <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
-</AvrGccCpp>
+        <avrgcc.common.Device>-mmcu=atmega32u4 -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32u4"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=108010</Value>
+            <Value>ARDUINO_AVR_LEONARDO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+            <Value>USB_VID=0x2341</Value>
+            <Value>USB_PID=0x8036</Value>
+            <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
+            <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+            <Value>..\include\libraries\Wire\src</Value>
+            <Value>..\include\libraries\Wire\src\utility</Value>
+            <Value>..\include\libraries\LiquidCrystal\src</Value>
+            <Value>..\include\libraries\hd44780</Value>
+            <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+            <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>..\include\libraries\DHTlib</Value>
+            <Value>..\include\libraries\Arduino-PID-Library-master</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -std=gnu11</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>F_CPU=16000000L</Value>
+            <Value>ARDUINO=108010</Value>
+            <Value>ARDUINO_AVR_LEONARDO</Value>
+            <Value>ARDUINO_ARCH_AVR</Value>
+            <Value>USB_VID=0x2341</Value>
+            <Value>USB_PID=0x8036</Value>
+            <Value>USB_PRODUCT="\"Arduino Leonardo\""</Value>
+            <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\LED_Pinbelegung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SharpIR-master</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Motorensteuerung\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Pruefung_2\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_01\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\Test_02\__vm</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\leonardo</Value>
+            <Value>..\include\libraries\Wire\src</Value>
+            <Value>..\include\libraries\Wire\src\utility</Value>
+            <Value>..\include\libraries\LiquidCrystal\src</Value>
+            <Value>..\include\libraries\hd44780</Value>
+            <Value>..\include\libraries\hd44780\examples\Documentation\docs</Value>
+            <Value>..\include\libraries\hd44780\hd44780ioClass</Value>
+            <Value>..\include\libraries\DHTlib</Value>
+            <Value>..\include\libraries\Arduino-PID-Library-master</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics</avrgcccpp.compiler.optimization.OtherFlags>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.warnings.InhibitAllWarnings>True</avrgcccpp.compiler.warnings.InhibitAllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>C:\Users\cyril\Documents\Atmel Studio\7.0\ebs_Projektarbeit_bewertet\99_Projektarbeit_COC_BRA\99_Projektarbeit_COC_BRA\Projektarbeit_COC_BRA\include\libraries\Arduino-PID-Library-master</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.LibrarySearchPaths>
+        <avrgcccpp.linker.miscellaneous.LinkerFlags>-Os</avrgcccpp.linker.miscellaneous.LinkerFlags>
+        <avrgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.3.300\include</Value>
+          </ListValues>
+        </avrgcccpp.assembler.general.IncludePaths>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GPS_read.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="GPS_read.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\libraries\Arduino-PID-Library-master\PID_v1.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\libraries\DHTlib\dht.h">
       <SubType>compile</SubType>
     </Compile>
@@ -328,6 +351,9 @@
     <Compile Include="Sketch.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\libraries\Arduino-PID-Library-master\PID_v1.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\libraries\DHTlib\dht.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -356,6 +382,7 @@
   <ItemGroup>
     <Folder Include="include\" />
     <Folder Include="include\libraries\" />
+    <Folder Include="include\libraries\Arduino-PID-Library-master\" />
     <Folder Include="include\libraries\DHTlib\" />
     <Folder Include="include\libraries\hd44780\" />
     <Folder Include="include\libraries\hd44780\examples\" />
@@ -367,6 +394,7 @@
     <Folder Include="include\libraries\Wire\src\utility\" />
     <Folder Include="src\" />
     <Folder Include="src\libraries\" />
+    <Folder Include="src\libraries\Arduino-PID-Library-master\" />
     <Folder Include="src\libraries\DHTlib\" />
     <Folder Include="src\libraries\hd44780\" />
     <Folder Include="src\libraries\LiquidCrystal\" />

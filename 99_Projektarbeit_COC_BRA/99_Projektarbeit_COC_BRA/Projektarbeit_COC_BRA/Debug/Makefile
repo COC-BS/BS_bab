@@ -59,6 +59,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../GPS_read.cpp \
 ../Romeo_keys.cpp \
 ../Sketch.cpp \
 ../src/libraries/Arduino-PID-Library-master/PID_v1.cpp \
@@ -76,6 +77,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+GPS_read.o \
 Romeo_keys.o \
 Sketch.o \
 src/libraries/Arduino-PID-Library-master/PID_v1.o \
@@ -86,6 +88,7 @@ src/libraries/Wire/src/utility/twi.o \
 src/libraries/Wire/src/Wire.o
 
 OBJS_AS_ARGS +=  \
+GPS_read.o \
 Romeo_keys.o \
 Sketch.o \
 src/libraries/Arduino-PID-Library-master/PID_v1.o \
@@ -96,6 +99,7 @@ src/libraries/Wire/src/utility/twi.o \
 src/libraries/Wire/src/Wire.o
 
 C_DEPS +=  \
+GPS_read.d \
 Romeo_keys.d \
 Sketch.d \
 src/libraries/Arduino-PID-Library-master/PID_v1.d \
@@ -106,6 +110,7 @@ src/libraries/Wire/src/utility/twi.d \
 src/libraries/Wire/src/Wire.d
 
 C_DEPS_AS_ARGS +=  \
+GPS_read.d \
 Romeo_keys.d \
 Sketch.d \
 src/libraries/Arduino-PID-Library-master/PID_v1.d \
@@ -130,6 +135,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./GPS_read.o: .././GPS_read.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=108010 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x8036 -DUSB_PRODUCT="\"Arduino Leonardo\"" -DUSB_MANUFACTURER="\"Arduino LLC\""  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\Arduino_Radar_Projekt\__vm" -I"..\\..\ArduinoCore\include\LED_Pinbelegung\__vm" -I"..\\..\ArduinoCore\include\libraries\hd44780" -I"..\\..\ArduinoCore\include\libraries\SharpIR-master" -I"..\\..\ArduinoCore\include\libraries\hd44780\hd44780ioClass" -I"..\\..\ArduinoCore\include\mc1_FS19_P4_Cyrill_Coray_DO\__vm" -I"..\\..\ArduinoCore\include\Motorensteuerung\__vm" -I"..\\..\ArduinoCore\include\Pruefung_2\__vm" -I"..\\..\ArduinoCore\include\Test_01\__vm" -I"..\\..\ArduinoCore\include\Test_02\__vm" -I"..\\..\ArduinoCore\include\variants\leonardo" -I"..\include\libraries\Wire\src" -I"..\include\libraries\Wire\src\utility" -I"..\include\libraries\LiquidCrystal\src" -I"..\include\libraries\hd44780" -I"..\include\libraries\hd44780\examples\Documentation\docs" -I"..\include\libraries\hd44780\hd44780ioClass" -I"..\include\libraries\DHTlib" -I"..\include\libraries\Arduino-PID-Library-master"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega32u4 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32u4" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./Romeo_keys.o: .././Romeo_keys.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0

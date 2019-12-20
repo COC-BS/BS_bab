@@ -96,16 +96,15 @@ src/libraries/hd44780/hd44780.d \
 src/libraries/Wire/src/utility/twi.d \
 src/libraries/Wire/src/Wire.d
 
-OUTPUT_FILE_PATH +=einfaches_hmi.elf
+OUTPUT_FILE_PATH +=Motorensteuerung_Test.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=einfaches_hmi.elf
+OUTPUT_FILE_PATH_AS_ARGS +=Motorensteuerung_Test.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
 OUTPUT_FILE_DEP:= ./makedep.mk
 
-LIB_DEP+=  \
-C:/Users/cyril/Documents/Atmel\ Studio/7.0/ebs_Projektarbeit_bewertet/00_Testprojekt_Motorensteuerung/01_Hello_World/ArduinoCore/Debug/libArduinoCore.a
+LIB_DEP+= 
 
 LINKER_SCRIPT_DEP+= 
 
@@ -172,13 +171,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR8/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="einfaches_hmi.map" -Wl,--start-group -Wl,-lm -Wl,-lArduinoCore  -Wl,--end-group -Wl,-L"C:\Program Files (x86)\Arduino\libraries\DHT22-master" -Wl,-L"C:\Program Files (x86)\Arduino\libraries\Arduino-PID-Library-master" -Wl,-L"C:\Users\cyril\DOCUME~1\ATMELS~1\7.0\EBS_PR~1\00_TES~1\01_HEL~1\ARDUIN~1\Debug"  -Wl,--gc-sections -mmcu=atmega32u4 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32u4" -Os  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Motorensteuerung_Test.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,-L"C:\Program Files (x86)\Arduino\libraries\DHT22-master" -Wl,-L"C:\Program Files (x86)\Arduino\libraries\Arduino-PID-Library-master"  -Wl,--gc-sections -mmcu=atmega32u4 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32u4" -Os  
 	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "einfaches_hmi.elf" "einfaches_hmi.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "einfaches_hmi.elf" "einfaches_hmi.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "einfaches_hmi.elf" > "einfaches_hmi.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "einfaches_hmi.elf" "einfaches_hmi.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "einfaches_hmi.elf"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Motorensteuerung_Test.elf" "Motorensteuerung_Test.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Motorensteuerung_Test.elf" "Motorensteuerung_Test.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "Motorensteuerung_Test.elf" > "Motorensteuerung_Test.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "Motorensteuerung_Test.elf" "Motorensteuerung_Test.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "Motorensteuerung_Test.elf"
 	
 	
 
@@ -190,5 +189,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "einfaches_hmi.elf" "einfaches_hmi.a" "einfaches_hmi.hex" "einfaches_hmi.lss" "einfaches_hmi.eep" "einfaches_hmi.map" "einfaches_hmi.srec" "einfaches_hmi.usersignatures"
+	rm -rf "Motorensteuerung_Test.elf" "Motorensteuerung_Test.a" "Motorensteuerung_Test.hex" "Motorensteuerung_Test.lss" "Motorensteuerung_Test.eep" "Motorensteuerung_Test.map" "Motorensteuerung_Test.srec" "Motorensteuerung_Test.usersignatures"
 	

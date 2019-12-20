@@ -67,9 +67,12 @@ char buffer[BUFFERSIZE];							// buffer for data from NMEA device
 uint8_t count=0;									// counter for buffer array
 char* ptr = NULL;
 uint8_t frame = 0;
-
 long t;
 char s[12];
+//Flag um festzuhalten ob GPS Daten empfangen wurden und wann.
+boolean gpsDataReceived = false;
+int timeDataReceived;
+
 
 class Zeit {
 public:	
@@ -103,9 +106,9 @@ public:
 };
 
 //Ausgangsuhrzeit
-class Zeit zeitGMT(17,59,45);
+class Zeit zeitGMT(16,59,45);
 //Zeit für die verschiedenen Zeitzonen
-class Zeit zeitTimeZone(12,0,0);
+class Zeit zeitTimeZone(0,0,0);
 //Lokalzeit
 class Zeit zeitLocal(17,59,45);
 
@@ -401,7 +404,9 @@ int homeScreen(int key)
  * Zwischen 0 und kleiner als 24.
  * Ändert das Datum bei Zeitübertrag.
  */
-void calculateTime() {
+void calculateTime() 
+{
+	zeitTimeZone = zeitGMT;
 	zeitTimeZone.hh_= zeitGMT.hh_ + CITIES[tz].timediff;
 	datumTimeZone = datumGMT;
 	if (zeitTimeZone.hh_ > 23)
@@ -647,42 +652,56 @@ void wheelSpeed()
 	duration++;
 }
 
-void readGPS()
+boolean readGPS()
 {
-	while(Serial1.available()) {						// as long as data is available on NMEA device
+	boolean getData = false;
+	while(Serial1.available()) {							// as long as data is available on NMEA device
 		unsigned char c =  buffer[count] = Serial1.read();	// write data into array
-		Serial.write(c);								// and write data to PC (Serial)
-		if(count < BUFFERSIZE-1) count++;				// to avoid buffer overflow
+		Serial.write(c);									// and write data to PC (Serial)
+		if(count < BUFFERSIZE-1) count++;					// to avoid buffer overflow
 		if(c == '$') {
 			ptr = buffer;
-			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;			// fill with 0
-			count = 0;								// start of frame found, reset buffer
-			buffer[count++] = c;						// store start of frame
+			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;		// fill with 0
+			count = 0;										// start of frame found, reset buffer
+			buffer[count++] = c;							// store start of frame
 		}
-		if(c == '*') {									// end of frame found, start conversion
+		if(c == '*') {										// end of frame found, start conversion
 			frame = 1;
 			break;
 		}
 	}
-	if(frame) {											// full frame in buffer, so parse and decode
+	if(frame) {												// full frame in buffer, so parse and decode
 		frame = 0;
-		ptr = strstr(buffer, NMEA_TIME);				// scan for GPRMC keyword
-		if(ptr != NULL) {								// GPRMC keyword found, read time
+		ptr = strstr(buffer, NMEA_TIME);					// scan for GPRMC keyword
+		if(ptr != NULL) {									// GPRMC keyword found, read time
 			ptr += strlen(NMEA_TIME);
-			t = atol(ptr);								// parse time value into hour, minute, second
+			t = atol(ptr);									// parse time value into hour, minute, second
 			zeitLocal.ss_ = t % 100;
 			zeitLocal.mm_ = (t / 100) % 100;
 			zeitLocal.hh_ = ((t / 10000) + TIMEZONE) % 24;	
-		
+			
+			getData = true;
+			
+			ptr += 10;
+			//Readout Latitude & Longitude
+			String latitude;
+			//strlcpy(latitude, buffer + ptr,9);
+			
+			ptr += 9; 
+			String longitude;
+			//strlcpy(longitude, buffer + ptr, 9);
 								
 			ptr = buffer;
-			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;			// fill with 0
-			count = 0;							// clear buffer and start new
+			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;		// fill with 0
+			count = 0;										// clear buffer and start new
 		}
 	}
-	if (Serial.available()){							// if data is available from PC
-		Serial1.write(Serial.read());					// write it to the NMEA device
+	if (Serial.available()){								// if data is available from PC
+		Serial1.write(Serial.read());						// write it to the NMEA device
 	}
+	zeitGMT = zeitLocal;
+	zeitGMT.hh_ -= 1;
+	return getData;
 }
 
 
@@ -747,9 +766,6 @@ void setup()
 	while(millis()<3000);
 	lcd.clear();
 	
-	zeitTimeZone = zeitGMT;
-	datumTimeZone = datumGMT;
-	
 	//Pin definitionen
 	pinMode(btnPin, INPUT);
 	pinMode(tempSensor,INPUT);
@@ -758,12 +774,35 @@ void setup()
 	pinMode(encoder0pinB,INPUT);
 	
 	//PID-Regler
-	Setpoint = 0; //Setpint 15 works
+	Setpoint = 20; //Setpint 15 works
 	myPID.SetMode(AUTOMATIC);//PID is set to automatic mode
 	myPID.SetSampleTime(100);//Set PID sampling frequency is 100ms
 	attachInterrupt(digitalPinToInterrupt(7), wheelSpeed, CHANGE); //Pin 7 -> Interrupt 4
-	
 	previousMillis = millis();
+	
+	//GPS-Modul auslesen
+	while (millis()<6000)
+	{
+		lcd.setCursor(0,0);
+		lcd.print("Read GPS");	
+		if (readGPS())
+		{
+			lcd.clear();
+			lcd.print("Data received");
+			gpsDataReceived = true;
+			timeDataReceived = millis();
+			break;
+		}
+		else timeDataReceived = millis();
+	}
+	if (gpsDataReceived == false) 
+	{
+		lcd.clear();
+		lcd.print("No GPS-Signal");	
+	}
+	zeitTimeZone = zeitGMT;
+	while((timeDataReceived+2000) > millis());
+	lcd.clear();
 }
 
 /**
@@ -774,18 +813,23 @@ void setup()
  */
 void loop()
 {
-	readGPS();
-	//Zeit GMT wird nicht gesetzt!!!!!! FEHLER
-	zeitGMT = zeitLocal;
-	zeitGMT.hh_ -= 1;
+	//Wenn keine GPS-Daten vorhanden sind wird weiter nach Daten gesucht.
+	//Wurden beim Setup GPS-DAten gefunden wird alle 30min die Uhrzeit und das Datum synchronisiert.
+	if (gpsDataReceived == false || (timeDataReceived + 1000*60*30) < millis()) 
+	{
+		gpsDataReceived = readGPS();
+		timeDataReceived = millis();
+	}	
 		
-	//Button-Pin auslesen
+	//Button-Pin auslesen und auf Nullstellung reagieren
 	if (digitalRead(btnPin) == HIGH)
 	{
-		callibratePointer();
+		Setpoint = 0;
 	}
 	else
 	{
+	//Aktueller Zeigerstand als Nullstellung definiert
+	if (zeitLocal.GetSeconds() == 0) Setpoint = 20;
 	//PID-Regelung
 	advance(); //Motor forward
 	currentMillis = millis();

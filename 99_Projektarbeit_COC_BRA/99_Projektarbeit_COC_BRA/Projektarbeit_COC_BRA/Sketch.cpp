@@ -42,14 +42,13 @@ const int tempSensor=A4;
 const byte encoder0pinB = 7;
 int En_Motor = 5; //Enable Control Motor 1
 int Dir_Motor = 4; //Direction control Motor 1
-byte encoder0PinALast;
 double duration,abs_duration;//the number of the pulses
 boolean result;
 boolean motorOn = false;
 
 double val_output;//Power supplied to the motor PWM value.
 double Setpoint;
-double Kp=3, Ki=5, Kd=0;
+double Kp=2, Ki=10, Kd=0;
 PID myPID(&abs_duration, &val_output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 // Counters for milliseconds during interval
@@ -886,30 +885,36 @@ void loop()
 	//Button-Pin auslesen und auf Nullstellung reagieren
 	if (digitalRead(btnPin) == HIGH)
 	{
+		motorOn = false;
 		Setpoint = 0;
 		duration = 0;
-		analogWrite(En_Motor,0);
-		
+		val_output = 0;
+		analogWrite(En_Motor,0);	
 	}
-	else
-	{
+
 	//Aktueller Zeigerstand als Nullstellung definiert
-	if (zeitLocal.GetSeconds() == 0) Setpoint = 20;
-	//PID-Regelung
-	advance(); //Motor forward
-	currentMillis = millis();
-	if (currentMillis - previousMillis > interval)
+	if (zeitLocal.GetSeconds() == 0) 
 	{
-		previousMillis = currentMillis;
-		
-		abs_duration=duration * 60 / 1920;
-			
-		result=myPID.Compute();//PID conversion is complete and returns 1
-		if(result)
+		 Setpoint = 20;
+		 motorOn = true;
+	}
+	//PID-Regelung
+	if (motorOn)
+	{
+		advance(); //Motor forward
+		currentMillis = millis();
+		if (currentMillis - previousMillis > interval)
 		{
-			duration = 0; //Count clear, wait for the next count
+			previousMillis = currentMillis;
+			abs_duration=duration * 60 / 1920;
+			result=myPID.Compute();//PID conversion is complete and returns 1
+			if(result)
+			{
+				duration = 0; //Count clear, wait for the next count
+			}
 		}
 	}
+	
 	Watch();
 	if(weckerStatus&&(zeitLocal.GetHours()==weckzeit.GetHours())&&(zeitLocal.GetMinutes()==weckzeit.GetMinutes())&&(zeitLocal.GetSeconds()==weckzeit.GetSeconds())) buzzer = 1;
 	input = getkey();
@@ -965,8 +970,6 @@ void loop()
 		break;
 	}
 	if(newmenu >= 0) menu = newmenu;
-
-	} //else Klammer
 }
 
 

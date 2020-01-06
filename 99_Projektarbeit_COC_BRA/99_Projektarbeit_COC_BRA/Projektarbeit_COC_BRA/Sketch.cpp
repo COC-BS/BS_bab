@@ -62,16 +62,22 @@ int interval = 1000;
 //GPS-Variabeln
 #define NMEA_TIME "GPRMC,"
 #define TIMEZONE 1
-#define BUFFERSIZE 64
+#define BUFFERSIZE 70
 char buffer[BUFFERSIZE];							// buffer for data from NMEA device
 uint8_t count=0;									// counter for buffer array
 char* ptr = NULL;
 uint8_t frame = 0;
-long t;
 char s[12];
 //Flag um festzuhalten ob GPS Daten empfangen wurden und wann.
 boolean gpsDataReceived = false;
 int timeDataReceived;
+
+int longitudeDegr;
+int longitudeMin;
+char longitudeDir;
+String latitudeDegr;
+String latitudeMin;
+char latitudeDir;
 
 
 class Zeit {
@@ -333,9 +339,9 @@ void printhhmmss(class Zeit &z)
  */
 void printddmmyyyy(class Datum &d)
 {
-	if(d.GetDay()<=9)lcd.print(" ");
+	if(d.GetDay()<=9)lcd.print("0");
 	lcd.print(d.GetDay());
-	if(d.GetMonth()<=9)lcd.print(". "); else lcd.print(".");
+	if(d.GetMonth()<=9)lcd.print(".0"); else lcd.print(".");
 	lcd.print(d.GetMonth());
 	lcd.print(".");
 	lcd.print(d.GetYear());
@@ -618,9 +624,31 @@ int dateScreen(int key)
  */
 int gpsScreen(int key)
 {
-	lcd.setCursor(0,0);
-	lcd.print("GPS Daten");
-	return key;	
+	if (gpsDataReceived == true)
+	{
+			lcd.setCursor(0,0);
+			lcd.print(latitudeDegr);
+			lcd.print((char)223);
+			lcd.print(latitudeMin);
+			lcd.print("' ");
+			lcd.print(latitudeDir);
+			
+			lcd.setCursor(0,1);
+			lcd.print(longitudeDegr);
+			lcd.print((char)223);
+			lcd.print(longitudeMin);
+			lcd.print("' ");
+			lcd.print(longitudeDir);
+	}
+	else 
+	{
+		lcd.setCursor(0,0);
+		lcd.print("No GPS");
+		lcd.setCursor(0,1);
+		lcd.print("Signal");
+	}
+	
+	return key;
 }
 
 
@@ -655,6 +683,7 @@ void wheelSpeed()
 boolean readGPS()
 {
 	boolean getData = false;
+	long tempLong;
 	while(Serial1.available()) {							// as long as data is available on NMEA device
 		unsigned char c =  buffer[count] = Serial1.read();	// write data into array
 		Serial.write(c);									// and write data to PC (Serial)
@@ -670,27 +699,58 @@ boolean readGPS()
 			break;
 		}
 	}
+	
+	
+	//GPRMC,hhmmss.sss,A,ddmm.mmmm,N,ddmm.mmmm,E,0.51,193.93,ddmmyy
+	
 	if(frame) {												// full frame in buffer, so parse and decode
 		frame = 0;
 		ptr = strstr(buffer, NMEA_TIME);					// scan for GPRMC keyword
-		if(ptr != NULL) {									// GPRMC keyword found, read time
+		if(ptr != NULL) {
+			//buffer;											// GPRMC keyword found, read time
 			ptr += strlen(NMEA_TIME);
-			t = atol(ptr);									// parse time value into hour, minute, second
-			zeitLocal.ss_ = t % 100;
-			zeitLocal.mm_ = (t / 100) % 100;
-			zeitLocal.hh_ = ((t / 10000) + TIMEZONE) % 24;	
+			tempLong = atol(ptr);									// parse time value into hour, minute, second
+			zeitLocal.ss_ = tempLong % 100;
+			zeitLocal.mm_ = (tempLong / 100) % 100;
+			zeitLocal.hh_ = ((tempLong / 10000) + TIMEZONE) % 24;	
 			
 			getData = true;
 			
-			ptr += 10;
-			//Readout Latitude & Longitude
-			String latitude;
-			//strlcpy(latitude, buffer + ptr,9);
+			String buf = String(ptr);
 			
-			ptr += 9; 
-			String longitude;
-			//strlcpy(longitude, buffer + ptr, 9);
-								
+			//If GPS-Data is not valid
+			if (buf.indexOf("A,") == -1)
+			{
+				getData = false;
+			} 
+			else
+			{
+				/*
+				latitudeDegr = buf.substring(buf.indexOf("A,")+2, buf.indexOf("A,")+4);
+				latitudeMin = buf.substring(buf.indexOf("A,")+4, buf.indexOf("A,")+6);
+				longitudeDegr = buf.substring(buf.indexOf("N,")+2, buf.indexOf("N,")+5);
+				longitudeMin = buf.substring(buf.indexOf("N,")+5, buf.indexOf("N,")+7);
+			
+				latitudeDir = 'N';
+				longitudeDir = 'E';
+				*/
+				tempLong = atol(ptr+13);
+				latitudeMin = tempLong % 100;
+				latitudeDegr = (tempLong / 100) % 100;
+				latitudeDir = *(ptr+23);
+				
+				tempLong = atol(ptr+25);
+				longitudeMin = tempLong % 100;
+				longitudeDegr = (tempLong / 100) % 100;
+				longitudeDir = *(ptr+36);
+				
+				tempLong = atol(ptr+50);
+				datumLocal.YYYY_ = 2000 + tempLong % 100;
+				datumLocal.MM_ = (tempLong / 100) % 100;
+				datumLocal.DD_ = (tempLong / 10000) % 100;	
+			}
+			
+											
 			ptr = buffer;
 			while(ptr < buffer + BUFFERSIZE)  *ptr++=0;		// fill with 0
 			count = 0;										// clear buffer and start new
@@ -701,6 +761,8 @@ boolean readGPS()
 	}
 	zeitGMT = zeitLocal;
 	zeitGMT.hh_ -= 1;
+	
+	datumGMT = datumLocal;
 	return getData;
 }
 
@@ -825,6 +887,9 @@ void loop()
 	if (digitalRead(btnPin) == HIGH)
 	{
 		Setpoint = 0;
+		duration = 0;
+		analogWrite(En_Motor,0);
+		
 	}
 	else
 	{
